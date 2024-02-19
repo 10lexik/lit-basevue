@@ -1,0 +1,247 @@
+// path to assets img : '~@/assets/img/'
+$header-background-mob: ''; // "https://picsum.photos/300/800/?random=1";
+$header-background-desk: ''; // "http://picsum.photos/1500/800";
+$header-background-color: $c-theme;
+$header-logo-width-mob: vw(104px);
+$header-logo-width-desk: du(184px);
+$color-text: white;
+$color-scrollText: $color-text;
+$color-icon-scroll: $color-text;
+
+.header {
+    position: relative;
+    z-index: 0;
+    background-color: $header-background-color; /* Fallback */
+    // animation: backgroundColor 3.5s infinite linear;
+    @if ($header-background-mob != '') { background: url($header-background-mob) center center / cover $header-background-color; }
+
+    &__wrapper {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        width: 100vw;
+        max-width: 100%;
+        overflow: hidden;
+        @if ($header-background-desk != '') { background: url($header-background-desk) center center / cover $header-background-color; }
+
+        @extend %fullHeight;
+    }
+
+    &__logo {
+        width: $header-logo-width-mob;
+        @include breakpoint($b-tab-desk) {
+            width: $header-logo-width-desk;
+        }
+    }
+
+    &__title {
+        color: $color-text;
+        width: 100%;
+
+        .pop-in & {
+            display: flex;
+            flex-direction: column;
+            row-gap: vw(16px);
+            @include breakpoint($b-tab-desk) {
+                row-gap: du(16px);
+            }
+        }
+
+        .block & {
+            display: flex;
+            flex-direction: column;
+            row-gap: vw(6px);
+            @include breakpoint($b-tab-desk) {
+                row-gap: du(6px);
+            }
+        }
+    }
+
+    &__text {
+        color: $color-text;
+        margin-top: 2vw;
+        width: 100%;
+
+        @include breakpoint($b-tab-desk) {
+            margin-top: du(12px);
+        }
+    }
+
+    &__content {
+        padding: vw(32px) vw(18px) 0;
+        width: 100%;
+        height: 100%;
+
+        @include breakpoint($b-tab-desk) {
+            padding: du(78px) 0 0;
+        }
+
+        &--animation {
+            background: none;
+        }
+
+        .pop-in & {
+            height: 80%;
+        }
+
+        .block & {
+            height: 74%;
+        }
+
+        .center & {
+            padding: 0;
+        }
+    }
+
+    &__bloc {
+
+        &.center {
+            text-align: center;
+        }
+
+        &.left {
+            text-align: left;
+        }
+
+        &.right {
+            text-align: right;
+        }
+
+        &--top {
+            padding: 8.5vw 0 0;
+            @include breakpoint($b-tab-desk) {
+                padding: du(32px) 0 0;
+            }
+        }
+
+        &--bottom {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            padding: 0 0 20vw;
+
+            @include breakpoint($b-tab-desk) {
+                padding: 0 0 du(100px);
+            }
+        }
+
+        &--pop-in {
+            position: absolute;
+            bottom: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background-color: white;
+            box-shadow: vw(2px) vw(4px) vw(14px) rgba(0, 0, 0, 0.1);
+            padding: 5vw 4vw 20vw;
+            border-radius: vw(6px);
+
+            @include breakpoint($b-tab-desk) {
+                width: 90%;
+                max-width: du(710px);
+                padding: du(48px) du(18px) du(114px);
+                box-shadow: du(2px) du(4px) du(14px) rgba(0, 0, 0, 0.1);
+                border-radius: du(6px);
+            }
+        }
+
+        &--block {
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            background-color: white;
+            padding: 18vw 4vw 28vw;
+            border-radius: vw(6px);
+
+            @include breakpoint($b-tab-desk) {
+                padding: du(90px) du(2px) du(154px);
+                border-radius: du(6px);
+            }
+
+            & .header__logo {
+                position: absolute;
+                left: 50%;
+                top: du(-38px);
+                width: 35%;
+                transform: translateX(-50%);
+                @include breakpoint($b-tab-desk) {
+                    top: du(-45px);
+                    width: du(150px);
+                }
+            }
+        }
+
+        &--center {
+            position: absolute;
+            width: 90%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            & .header__logo {
+                width: vw(104px);
+                margin-bottom: vw(32px);
+                @include breakpoint($b-tab-desk) {
+                    width: du(184px);
+                    margin-bottom: du(48px);
+                }
+            }
+        }
+
+        & .offre {
+            margin-top: vw(28px);
+            @include breakpoint($b-tab-desk) {
+                margin-top: du(48px);
+            }
+        }
+    }
+
+    &__mentions {
+        width: 100%;
+        position: relative;
+        text-align: center;
+        color: $color-scrollText;
+        top: -3vw;
+
+        @include breakpoint($b-tab-desk) {
+            top: -1.5vh;
+        }
+    }
+
+    &__logo {
+        width: vw(104px);
+        margin: auto;
+
+        @include breakpoint($b-tab-desk) {
+            width: du(184px);
+        }
+    }
+
+    &__scrollTo {
+        position: absolute;
+        width: 100%;
+        bottom: 2.5%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &_icon {
+            &--img {
+                width: vw(26px);
+                margin: auto;
+                animation: upDown 2s ease-in-out 0ms infinite;
+
+                @include breakpoint($b-tab-desk) {
+                    width: du(38px);
+                }
+
+                ::v-deep svg path {
+                    stroke: $color-icon-scroll;
+                }
+            }
+        }
+    }
+}

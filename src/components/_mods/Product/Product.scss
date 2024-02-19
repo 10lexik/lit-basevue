@@ -1,0 +1,40 @@
+
+.product-mod {
+    position: relative;
+    top: 0;
+    margin-bottom: $g-margin;
+
+    &__bottom-div {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 85%;
+        padding: $g-margin;
+        background-color: rgba(255,255,255,0.7);
+
+        ::v-deep .fonts {
+            text-align: left;
+            margin-bottom: $g-margin;
+
+            @include breakpoint($b-tab) {
+                margin-bottom: vw($g-margin);
+            }
+        }
+    }
+
+    &__button-div {
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        transform: translateY(50%);
+
+        ::v-deep .click {
+            width: 100%;
+
+            & a {
+                width: 100%;
+            }
+        }
+    }
+}

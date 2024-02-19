@@ -1,0 +1,164 @@
+// color text
+$color-offer-text: $c-text;
+$color-offer-bg: #FFF;
+$color-title: $color-offer-text;
+$color-text: $color-offer-text;
+$color-code-title: $color-offer-text;
+$color-voucher-title: $color-offer-text;
+
+$border-radius: 16px;
+$padding-row-desktop: du(96px) du(140px);
+$width-row-wrapper-desktop: 75%;
+$width-row-content-desktop: du(328px);
+
+//style variant bundle
+$mpack-padding-row-desktop: du(72px) du(126px);
+$mpack-width-img-desktop: du(570px);
+$mpack-width-text-desktop: du(570px);
+
+//style popin
+$popin-box-shadow: 0px 1px 1px -1px rgba(34, 34, 43, 0.08), 0px 4px 8px -2px rgba(34, 34, 43, 0.08), 0px 1px 10px -2px rgba(34, 34, 43, 0.10);
+
+//style offer simple
+.offer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    height: 100vh;
+    color: $color-text;
+
+    @include breakpoint($b-tab-desk) {
+        height: 100%;
+    }
+
+    &.no-relative {
+        position: inherit;
+    }
+
+    &__wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+
+        .offer &:not(.multioffer &) {
+            background-color: $color-offer-bg;
+
+            &.popin {
+                @include breakpoint($b-mob-tab) {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+
+        .stacking & {
+            height: auto;
+        }
+
+        &.row {
+            @include breakpoint($b-tab-desk) {
+                width: fit-content;
+                margin: auto;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                padding: $padding-row-desktop;
+
+                .offer__content, .offer__img {
+                    margin: unset;
+                }
+
+                .offer__content {
+                    width: $width-row-content-desktop;
+                    margin-right: du(32px);
+
+                    .offer__title, .offer__subtitle,
+                    .offer__text {
+                        // text-align: left;
+                        margin-left: 0px;
+                        margin-right: 0px;
+                    }
+
+                    &.bundle {
+                        width: $mpack-width-text-desktop;
+                    }
+                }
+
+                .img-right-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    &.bundle {
+                        width: $mpack-width-img-desktop;
+                    }
+                }
+
+                .offer__img{
+                    max-width: unset;
+                }
+            }
+        }
+
+        &.popin {
+            box-shadow: $popin-box-shadow;
+            border-radius: vw($border-radius);
+
+            @include breakpoint($b-tab-desk) {
+                width: $width-row-wrapper-desktop;
+                margin: auto;
+                border-radius: du($border-radius);
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+        max-width: vw(320px);
+        margin: auto;
+
+        @include breakpoint($b-tab-desk) {
+            max-width: $width-row-content-desktop;
+        }
+    }
+
+    &__img {
+        @include breakpoint($b-tab-desk) {
+            max-width: $width-row-content-desktop - du(32px);
+            margin: auto;
+        }
+    }
+
+    &__title {
+        color: $color-title;
+    }
+
+    &__code {
+        color: $color-code-title;
+    }
+
+    &__voucher {
+        &__title {
+            color: $color-voucher-title;
+        }
+    }
+
+    &__text {
+        color: $color-text;
+
+        @include breakpoint($b-tab-desk) {
+            max-width: $width-row-content-desktop - du(32px);
+            margin: auto;
+        }
+    }
+
+    ::v-deep &__copy-code .ml {
+        color: $color-text;
+    }
+}

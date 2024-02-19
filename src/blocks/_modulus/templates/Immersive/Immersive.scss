@@ -1,0 +1,324 @@
+@import 'https://unpkg.com/fullpage.js/dist/fullpage.min.css';
+$color-text: white;
+$color-icon-scroll: $color-text;
+$color-indicator: white;
+$color-text-popin: black;
+$color-text-sticky: $c-text;
+$color-background-button-activePopin: white;
+$color-background-text-activePopin: #121217;
+$border-radius-activePopin: 26px;
+$color-background-popin: white;
+
+// path to assets img : '~@/assets/img/'
+$backgrounds: (
+    (0, 'https://dummyimage.com/640x360/000/000','https://dummyimage.com/1640x1360/000/000'),
+    (1, 'https://dummyimage.com/640x360/000/000','https://dummyimage.com/1640x1360/000/000'),
+    (2, 'https://dummyimage.com/640x360/000/000','https://dummyimage.com/1640x1360/000/000')
+);
+.immersive {
+    color: $color-text;
+
+    &__header {
+        top: 0;
+    }
+    &__section {
+        background-position: center;
+        background-size: cover;
+        @each $background in $backgrounds {
+            $bg-index: nth($background, 1);
+            $bg-mob: nth($background, 2);
+            $bg-desk: nth($background, 3);
+
+            &--#{$bg-index} {
+                background-image: url($bg-mob);
+
+                @include breakpoint($b-desk) {
+                    background-image: url($bg-desk);
+                }
+            }
+        }
+    }
+    &__indicator {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.5s;
+        &.hide {
+            left: -50vw;
+        }
+        &.show {
+            left: vw(16px);
+            @include breakpoint($b-tab-desk) {
+                left: du(81px, vh);
+            }
+        }
+        &.top {
+            top: 10%;
+        }
+
+        &_content {
+            padding: 6px 10px;
+            color: $color-indicator;
+            border-radius: 100%/40%;
+            background: rgba(0, 0, 0, 0.20);
+            position: relative;
+            @include breakpoint($b-tab-desk) {
+                padding: 5px 10px 4px;
+            }
+            &::after {
+                position: absolute;
+                content: '';
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 50%;
+                border-bottom: 1px solid $color-indicator;
+            }
+        }
+
+        &_length {
+            padding-top: 6px;
+        }
+
+        &_text {
+            font-size: 14px;
+            @include breakpoint($b-tab-desk) {
+                font-size: 16px;
+            }
+        }
+        &_svg {
+            fill: none;
+            stroke: $color-indicator;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110%;
+
+            path {
+                transition: all 0.5s;
+                stroke-dasharray: 116px;
+                stroke-dashoffset: 116px;
+            }
+        }
+        &_scrollTo {
+            margin-top: vw(12px);
+            transition: all 0.5s;
+            animation: upDown 2s ease-in-out 0ms infinite;
+            @include breakpoint($b-tab-desk) {
+                margin-top: 20px;
+            }
+            &.hide {
+                opacity: 0;
+            }
+            &.show {
+                opacity: 1;
+            }
+        }
+        &_icon {
+            cursor: pointer;
+            padding: 9px 0 0;
+            border-radius: 100%;
+            border: 1px solid $color-indicator;
+            &--img {
+                width: 26px;
+                margin: 0 auto -8px;
+                ::v-deep svg path {
+                    fill: $color-indicator;
+                }
+            }
+        }
+    }
+    &__sticky {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: $color-text-sticky;
+        transform: translateY(100%);
+        transition: all 0.3s ease-in-out;
+
+        &.show {
+            transform: translateY(0%);
+        }
+    }
+    &__footer {
+        bottom: 0;
+        &_footer {
+            margin-top: vw(10px);
+            @include breakpoint($b-tab-desk) {
+                margin-top: du(50px, vh);
+            }
+        }
+    }
+    .absolute {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+    }
+    &__activePopin {
+        position: absolute;
+
+        &.top {
+            top: vw(24px);
+            right: vw(20px);
+            @include breakpoint($b-tab-desk) {
+                top: du(70px, vh);
+                right: du(200px, vh);
+            }
+        }
+        &.bottom {
+            bottom: 50vw;
+            right: vw(20px);
+            @include breakpoint($b-tab-desk) {
+                bottom: auto;
+                top: du(70px, vh);
+                right: du(200px, vh);
+            }
+        }
+
+        ::v-deep &__popin {
+
+            .immersive__activePopin__popin__button {
+                background-color: $color-background-button-activePopin;
+                color: $color-background-text-activePopin;
+                border-radius: vw($border-radius-activePopin);
+
+                @include breakpoint($b-tab-desk) {
+                    border-radius: du($border-radius-activePopin);
+                }
+
+                &:hover {
+                    background-color: $color-background-button-activePopin;
+                }
+            }
+        }
+    }
+    &__popin {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        z-index: 20;
+
+        .popin {
+            &__content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 70%;
+                border-radius: vw(7px);
+                max-width: du(464px, vh);
+                background: $color-background-popin;
+                overflow: hidden;
+                width: 70%;
+                color: $color-text-popin;
+                @include breakpoint($b-tab-desk) {
+                    border-radius: du(7px, vh);
+                }
+
+                &_section {
+                    position: relative;
+                    padding: vw(24px) 0;
+                    margin: auto;
+                    width: 90%;
+                    @include breakpoint($b-tab-desk) {
+                        padding: du(24px, vh) 0 du(32px, vh) ;
+                    }
+                }
+                &_close {
+                    cursor: pointer;
+                    position: absolute;
+                    right: 0;
+                    top: -12px;
+                    background: $color-background-popin;
+                    border-radius: 100%;
+                    border: 1px solid $color-text-popin;
+                    width: 25px;
+                    height: 25px;
+                    &::after {
+                        content: '\e92f';
+                        font-family: 'icomoon';
+                        color: $color-text-popin;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 15px;
+                    }
+                }
+
+            }
+
+            &__btn {
+                padding: vw(24px) 0 0;
+
+                @include breakpoint($b-tab-desk) {
+                    padding: du(32px, vh) 0 0;
+                }
+            }
+        }
+    }
+    &__logo {
+        width: vw(104px);
+        margin: vw(41px) auto 0;
+        @include breakpoint($b-tab-desk) {
+            width: du(200px, vh);
+            margin: du(51px, vh) auto 0;
+        }
+    }
+    &__content {
+        width: calc(100% - vw(16px));
+        margin: auto;
+        @include breakpoint($b-tab-desk) {
+            width: 70%;
+        }
+        &_text {
+            width: 100%;
+            margin: vw(24px) 0;
+            @include breakpoint($b-tab-desk) {
+                width: du(603px, vh);
+                margin: du(24px, vh) 0;
+            }
+        }
+    }
+    &__btn {
+        margin: 0 0 vw(24px);
+        @include breakpoint($b-mob) {
+            display: flex !important;
+        }
+        @include breakpoint($b-tab-desk) {
+            margin: du(24px, vh) 0;
+        }
+    }
+    &__scrollTo {
+        text-align: center;
+        margin: vw(24px) 0 0;
+        @include breakpoint($b-tab-desk) {
+            margin: du(74px, vh) 0 0;
+        }
+        &_text {
+            margin: 0 0 10px;
+        }
+        &_icon {
+            cursor: pointer;
+            &--img {
+                width: vw(24px);
+                margin: auto;
+                animation: upDown 2s ease-in-out 0ms infinite;
+
+                @include breakpoint($b-tab-desk) {
+                    width: du(30px);
+                }
+
+                ::v-deep svg path {
+                    fill: $color-icon-scroll;
+                }
+            }
+        }
+    }
+}

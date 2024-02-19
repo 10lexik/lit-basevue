@@ -1,0 +1,25 @@
+.bounce-out-enter-active {
+    animation: bounce-out .5s reverse;
+}
+
+.bounce-out-leave-active {
+    animation: bounce-out .5s;
+}
+
+@keyframes bounce-out {
+    20% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    55% {
+        opacity: 1;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+}

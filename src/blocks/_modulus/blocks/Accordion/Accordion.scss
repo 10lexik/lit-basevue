@@ -1,0 +1,233 @@
+$color-accordion-text: $c-text;
+$color-title: $color-accordion-text;
+$color-subtitle: $color-accordion-text;
+$color-icon: rgba($c-vp, 0.584);
+$color-icon-cross: #ffffff;
+$color-card-text: #ffffff;
+$color-desc-text: $color-accordion-text;
+$b-radius-mob: 0px;
+$b-radius-desk: 0px;
+$background-overvlay-y: linear-gradient(0deg, rgba(23, 56, 64, 0.80) 0%, rgba(23, 56, 64, 0.80) 100%);
+$background-overvlay-x: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 100%);
+
+
+.accordion {
+    padding-bottom: vw(50px);
+
+    @include breakpoint($b-tab-desk) {
+        padding-bottom: du(50px);
+    }
+
+    &__wrapper {
+        padding: vw(48px) 0;
+
+        @include breakpoint($b-tab-desk) {
+            width: du(953px);
+            margin: auto;
+            padding: du(96px) 0;
+        }
+    }
+
+    &__title {
+        color: $color-title;
+        text-align: center;
+    }
+
+    &__subtitle {
+        color: $color-subtitle;
+        text-align: center;
+    }
+
+    &__slider {
+        padding: 0 vw(16px);
+
+        @include breakpoint($b-tab-desk) {
+            padding: 0;
+        }
+
+        &__row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin-bottom: vw(14px);
+            justify-content: space-between;
+
+            @include breakpoint($b-tab-desk) {
+                margin-bottom: du(24px);
+                justify-content: normal;
+                gap: du(24px);
+            }
+
+            .panel-active {
+                flex: 0 0 vw(216px);
+                background-position: center;
+
+                @include breakpoint($b-tab-desk) {
+                    flex: 0 0 du(708px);
+                }
+
+                &:hover {
+                    cursor: default
+                }
+
+                .overlay-y {
+                    opacity: 0;
+                }
+
+                .accordion__slider__card {
+                    .text, .overlay-x{
+                        opacity: 1;
+                    }
+                }
+
+                .icon {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &__panel {
+            position: relative;
+            flex: 0 0 vw(53px);
+            overflow: hidden;
+            transition: all 0.70s ease-in-out;
+            border-radius: vw($b-radius-mob);
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            @include breakpoint($b-tab-desk) {
+                flex: 0 0 du(99px);
+                border-radius: du($b-radius-desk);
+            }
+
+            &__placeholder {
+                opacity: 0;
+                width: vw(255px);
+                height: vw(300px);
+
+                @include breakpoint($b-tab-desk) {
+                    width: du(700px);
+                    height: du(500px);
+                }
+            }
+
+            &__media {
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            &__img {
+                background: no-repeat;
+                background-size: cover;
+                background-position: 68%;
+            }
+
+            &__icon {
+                position: absolute;
+                bottom: vw(17px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: vw(24px);
+                height: vw(24px);
+                right: vw(8px);
+                border-radius: 100%;
+                font-weight: 500;
+                font-size: vw(14px);
+                background-color: $color-icon;
+                color: $color-icon-cross;
+                transition: opacity 0.70s ease-in-out;
+                z-index: 5;
+
+                @include breakpoint($b-tab-desk) {
+                    bottom: du(17px);
+                    width: du(30px);
+                    height: du(30px);
+                    right: du(8px);
+                    font-size: du(18px);
+                }
+            }
+
+            &__overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                transition: opacity 0.70s ease-in-out;
+            }
+
+            .overlay-x {
+                opacity: 0;
+                background: $background-overvlay-x;
+            }
+
+            .overlay-y {
+                opacity: 1;
+                background: $background-overvlay-y;
+            }
+        }
+
+        &__card {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            padding: vw(16px) vw(8px);
+            z-index: 5;
+
+            @include breakpoint($b-tab-desk) {
+                padding: du(16px) du(23px);
+            }
+
+            &__text {
+                position: relative;
+                min-width: vw(200px);
+                font-size: vw(16px);
+                font-weight: 300;
+                text-transform: uppercase;
+                overflow-wrap: break-word;
+                line-height: vw(20px);
+                color: $color-card-text;
+                opacity: 0;
+                transition: opacity 0.70s ease-in-out;
+                z-index: 10;
+                @include breakpoint($b-tab-desk) {
+                    min-width: du(662px);
+                    font-size: du(28px);
+                    line-height: du(34px);
+                }
+            }
+        }
+    }
+
+    &__description {
+        position: relative;
+        &__text-wrapper {
+            margin-bottom: vw(24px);
+
+            @include breakpoint($b-tab-desk) {
+                margin-bottom: du(34px);
+            }
+        }
+
+        &__text {
+            padding-top: vw(16px);
+            color: $color-desc-text;
+
+            @include breakpoint($b-tab-desk) {
+                padding-top: du(16px);
+            }
+        }
+    }
+}

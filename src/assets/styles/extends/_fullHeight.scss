@@ -1,0 +1,9 @@
+// Real Full Height with CSS (in case of mobile navigator)
+%fullHeight {
+    height: vw(560px); // iPhone 5/5S compatible fallback
+    height: calc(var(--vh, 1vh) * 100); // Real 100% height
+
+    @include breakpoint($b-tab-desk) {
+        height: 100vh;
+    }
+}

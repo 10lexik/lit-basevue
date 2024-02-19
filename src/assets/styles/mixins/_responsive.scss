@@ -1,0 +1,29 @@
+// translate px value to both mobile/tab and desktop size
+
+/* Example of use :
+    @include responsive((
+        font-size: 16px,
+        height: 40px,
+        margin: 10px 20px 30px 40px
+    ));
+*/
+@mixin responsive($properties) {
+    @include breakpoint($b-mob-tab) {
+        @each $property, $value in $properties {
+            $tmp: ();
+            @each $v in $value {
+                $tmp: append($tmp, vw($v));
+            }
+            #{$property}: $tmp;
+        }
+    }
+    @include breakpoint($b-desk) {
+        @each $property, $value in $properties {
+            $tmp: ();
+            @each $v in $value {
+                $tmp: append($tmp, rem($v));
+            }
+            #{$property}: $tmp;
+        }
+    }
+}

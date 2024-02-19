@@ -1,0 +1,40 @@
+$ccw-button-width: 70%;
+
+.copycodewrapper {
+    text-align: center;
+
+    @include breakpoint($b-desk) {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    & .copycode {
+        @include responsive((
+            margin-top: 15px
+        ));
+
+        @include breakpoint($b-mob-tab) {
+            margin-bottom: vw(30px);
+        }
+    }
+
+    // Only for Desktop
+    @include breakpoint($b-desk) {
+        &__desktop-left-col, &__desktop-right-col {
+            display: flex;
+            flex-direction: column;
+
+            width: 50%;
+        }
+
+        &__desktop-right-col {
+            align-items: center;
+
+            & .click {
+                width: 70%;
+            }
+        }
+    }
+}

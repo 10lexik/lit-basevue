@@ -1,0 +1,11 @@
+$countdown-numbers-size: 50px;
+$countdown-indicators-size: 30px;
+
+.countdown {
+    text-align: center;
+    font-size: $countdown-numbers-size;
+
+    &__indicator {
+        font-size: $countdown-indicators-size;
+    }
+}

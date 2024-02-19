@@ -1,0 +1,82 @@
+// Settings
+$footer-c-background: #262626;
+$footer-c-carterose-carte: #ffffff;
+$footer-c-carterose-rose: $c-vp;
+$footer-c-carterose-a: $footer-c-carterose-carte;
+$footer-c-carterose-line: $footer-c-carterose-carte;
+$footer-c-privalia-logo: black;
+$footer-carterose-size: 120px;
+$footer-brand-size: 120px;
+$footer-c-mentions: #ffffff;
+
+.footer {
+    padding: 20px 0;
+    background-color: $footer-c-background;
+    text-align: center;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    &__carterose,
+    &__brand {
+        margin: 0 10px;
+    }
+
+    &__carterose {
+        width: $footer-carterose-size;
+
+        @include breakpoint($b-tab) {
+            width: $footer-carterose-size + 100;
+        }
+
+        ::v-deep &--img {
+
+            .carte {
+                fill: $footer-c-carterose-carte;
+            }
+
+            .rose {
+                fill: $footer-c-carterose-rose;
+            }
+
+            .a {
+                fill: $footer-c-carterose-a;
+            }
+
+            .line {
+                fill: $footer-c-carterose-line;
+            }
+
+            .privalia {
+                fill: $footer-c-privalia-logo
+            }
+        }
+    }
+
+    &__brand {
+        width: 100%;
+        max-width: $footer-brand-size;
+        max-height: $footer-brand-size;
+
+        @include breakpoint($b-tab) {
+            max-width: $footer-brand-size + 100;
+            max-height: $footer-brand-size + 100;
+        }
+    }
+
+    &__mentions {
+        font-size: vw(8px);
+        font-family: $t-vp-sans-next;
+        color: $footer-c-mentions;
+
+        @include breakpoint($b-desk) {
+            font-size: du(8px);
+        }
+    }
+}

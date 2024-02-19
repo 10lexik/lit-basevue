@@ -1,0 +1,164 @@
+$background-color-1: white;
+$background-color-2: white;
+$background-color-3: white;
+
+$shadow : 0px 1px 1px -1px rgba(34, 34, 43, 0.08), 0px 4px 8px -2px rgba(34, 34, 43, 0.08), 0px 1px 10px -2px rgba(34, 34, 43, 0.10);
+
+// multiOffer vars bundle
+$bundle-padding-row-offer-desk: du(72px) du(126px);
+$bundle-width-row-img-desktop: du(296px);
+
+// bundle card
+$card-radius: 16px;
+$card-background-color: white;
+$card-shadow: $shadow;
+$card-justify: center;
+
+// color text
+$color-text: $c-text;
+
+.multioffer {
+    &__offer {
+        text-align: center;
+        width: vw(296px);
+        height: 100%;
+        // height: fit-content;
+        // padding-top: vw(30px);
+        background-color: $background-color-1;
+        border-radius: vw(16px);
+        box-shadow: 0 1px 2px -2px rgba(34, 34, 43, 0.16), 0px -10px 14px -6px rgba(34, 34, 43, 0.08), 0px -4px 18px -2px rgba(34, 34, 43, 0.10);
+
+        @include breakpoint($b-tab-desk) {
+            width: du(840px);
+            border-radius: du(16px);
+            // padding: du(30px) 0;
+        }
+        // for individual customisation
+        &--0 {
+            background-color: $background-color-1;
+        }
+
+        &--1 {
+            background-color: $background-color-2;
+        }
+
+        &--2 {
+            background-color: $background-color-3;
+        }
+
+        &__img {
+            overflow: hidden;
+            border-radius: 0 0 vw(16px) vw(16px);
+
+            @include breakpoint($b-tab-desk) {
+                max-width: du(296px);
+                margin: auto;
+                border-radius: 0 0;
+            }
+        }
+
+        &__text {
+            color: $c-text;
+            @include breakpoint($b-tab-desk) {
+                max-width: du(296px);
+                margin: auto;
+            }
+        }
+    }
+
+    // style multiOffer variant Bundle
+    &__bundle {
+
+        &--offer {
+            height: 100%;
+
+
+            ::v-deep .offer__wrapper {
+                margin: 0 vw(8px);
+                padding: 0;
+                overflow: hidden;
+
+                @include breakpoint($b-tab-desk) {
+                    margin: 0 auto;
+                    padding: $bundle-padding-row-offer-desk;
+                }
+
+                .offer__content {
+                    margin: 0;
+                    padding: vw(24px) 0 0;
+                    max-width: 100%;
+
+                    @include breakpoint($b-tab-desk) {
+                        padding: 0;
+                    }
+
+                    .offer__subtitle, .offer__text {
+                        text-align: center;
+                    }
+                }
+
+                .offer__img {
+
+                    @include breakpoint($b-tab-desk) {
+                        width: $bundle-width-row-img-desktop;
+                    }
+                }
+
+                .offer__text {
+
+                    @include breakpoint($b-tab-desk) {
+                        margin: du(32px) 0 0;
+                    }
+                }
+            }
+        }
+
+        // style bundle pack
+        &__pack {
+
+            @include breakpoint($b-tab-desk) {
+                width: 75%;
+                margin: auto;
+            }
+
+            &__row {
+                display: flex;
+                justify-content: center;
+                margin: 0 0 vw(32px);
+                gap: vw(8px);
+
+
+                @include breakpoint($b-tab-desk) {
+                    margin: 0 0 du(32px);
+                    gap: du(48px);
+                }
+
+                .full-card {
+                    width: 100%;
+                }
+
+                &__card {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: $card-justify;
+                    align-items: center;
+
+                    width: vw(168px);
+                    max-width: vw(344px);
+                    background-color: $card-background-color;
+                    padding: vw(24px) vw(8px);
+                    border-radius: vw($card-radius);
+                    box-shadow: $card-shadow;
+                    text-align: center;
+
+                    @include breakpoint($b-tab-desk) {
+                        width: 50%;
+                        max-width: 100%;
+                        padding: du(48px) du(32px);
+                        border-radius: du($card-radius);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+$color-title: $c-text;
+$color-subtitle: $color-title;
+$color-icon: $c-vp;
+$color-bullet: $color-icon;
+
+.slider {
+    padding: vw(48px) 0;
+    text-align: center;
+    @include breakpoint($b-tab-desk) {
+        padding: du(96px) 0;
+    }
+
+    &__title {
+        margin-bottom: vw(32px);
+        color: $color-title;
+
+        @include breakpoint($b-tab-desk) {
+            margin-bottom: du(48px);
+        }
+
+        ::v-deep & p {
+            color: $color-subtitle;
+        }
+    }
+
+    &__navbar {
+        margin: 0 auto vw(32px);
+        @include breakpoint($b-tab-desk) {
+            margin: 0 auto du(48px);
+        }
+    }
+
+    &__content {
+        position: relative;
+        max-width: du(1200px);
+        margin: auto;
+    }
+
+    &__swiper {
+        &.focus {
+            .swiper-slide, .swiper-slide-duplicate {
+                opacity: 0.3;
+            }
+            .swiper-slide-active, .swiper-slide-duplicate-active {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__slide:not(.no-animation), & .swiper-slide-duplicate:not(.no-animation) {
+        margin: 0 0 vw(50px);
+        transform: translateY(vw(30px));
+        transition: all 0.5s;
+        @include breakpoint($b-tab-desk) {
+            margin: 0 0 du(70px);
+            transform: translateY(du(40px));
+        }
+
+        &.swiper-slide-active, &.swiper-slide-duplicate-active {
+            transform: translateY(0);
+        }
+    }
+
+    &__nav {
+        position: absolute;
+        width: vw(30px);
+        height: vw(30px);
+        border-radius: 100%;
+        border: solid 1px $color-icon;
+        top: 50%;
+        z-index: 10;
+        cursor: pointer;
+
+        @include breakpoint($b-tab-desk) {
+            width: du(30px);
+            height: du(30px);
+        }
+        &::after {
+            content:  $icon-arrow-right;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'icomoon';
+            color: $color-icon;
+            font-size: vw(16px);
+
+            @include breakpoint($b-tab-desk) {
+                font-size: du(16px);
+            }
+        }
+
+        &--next {
+            right: 4%;
+            @include breakpoint($b-tab-desk) {
+                right: 33%;
+                transform: translateX(50%);
+            }
+        }
+
+        &--prev {
+            left: 4%;
+            @include breakpoint($b-tab-desk) {
+                left: 33%;
+                transform: translateX(-50%);
+            }
+            &::after {
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+        }
+
+        &.swiper-button-disabled {
+            display: none;
+        }
+    }
+
+    ::v-deep .swiper-pagination-bullet {
+        background-color: $color-bullet;
+    }
+
+    ::v-deep .pagination-under .swiper-pagination {
+        position: relative;
+        bottom: 0;
+        margin-top: vw(10px);
+
+        @include breakpoint($b-desk) {
+            margin-top: du(20px);
+        }
+    }
+}

@@ -1,0 +1,84 @@
+Default Button (size = "s" and variant = "primary")
+
+```vue
+    <Click id="idDefault" button />
+```
+
+Click button primary
+
+```vue
+    <div style="display: flex; justify-content: flex-start; gap: 10px;">
+        <Click id="idPrimaryXs"  button size="xs" variant="primary"/>
+        <Click id="idPrimaryS" button size="s" variant="primary"/>
+        <Click id="idPrimaryM" button size="m" variant="primary"/>
+        <Click id="idPrimaryIcon" button size="m" variant="primary" icon="https://picsum.photos/20/20?random=1" />
+        <Click id="idPrimaryDisabled" button size="m" variant="primary" disabled/>
+    </div>
+```
+
+Click button secondary :
+
+```vue
+    <div style="display: flex; justify-content: flex-start; gap: 10px;">
+        <Click id="idSecondaryXs" button size="xs" variant="secondary"/>
+        <Click id="idSecondaryS" button size="s" variant="secondary"/>
+        <Click id="idSecondaryM" button size="m" variant="secondary"/>
+        <Click id="idSecondaryIcon" button size="m" variant="secondary" icon="https://picsum.photos/20/20?random=1" />
+        <Click id="idSecondaryDisabled" button size="m" variant="secondary" disabled/>
+    </div>
+```
+
+Click button link :
+
+```vue
+    <div style="display: flex; justify-content: flex-start; gap: 10px;">
+        <Click id="idLinkXs" button size="xs" variant="link"/>
+        <Click id="idLinkS" button size="s" variant="link"/>
+        <Click id="idLinkM"  button size="m" variant="link"/>
+        <Click id="idLinkDsiabled" button size="m" variant="link" disabled/>
+    </div>
+```
+
+Click button center and block :
+
+```vue
+    <Click id="idCenter" button size="m" center/>
+    <Click id="idBlock" button block/>
+```
+
+Click with a custom, slot override:
+
+```vue
+    <Click id="idSlotImg" center>
+        <Img src="https://picsum.photos/80/80?random=1" alt=""/>
+    </Click>
+```
+Click slot override replace with an svg icon:
+
+```vue
+ <Click id="idPrimaryIcon" button size="m" variant="primary" icon="svg">
+    <svg width="100%" height="100%" viewBox="0 0 18 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Desktop-HD" transform="translate(-18.000000, -16.000000)" fill="#FFFFFF">
+                <g id="Logos/Veepee/ButterflyOriginal" transform="translate(16.000000, 16.000000)">
+                <g id="Veepee_ORIGINAL" transform="translate(2.500000, 0.000000)">
+                    <path d="M15.7578514,13.4889413 C15.1989408,14.2048716 14.5704602,14.8640244 13.8815617,15.456801 C13.783725,15.5326547 13.7228489,15.5283202 13.7967699,15.456801 C16.1687654,12.8561054 18.7429566,7.1150698 15.4056394,1.44772057 C14.4247085,2.21514264 13.6109627,3.17378934 13.0140766,4.26514084 C11.9465699,2.6180336 10.3898799,1.23099593 8.44836576,0 C8.44836576,0 3.55218441,5.47012981 5.71763584,13.3935825 C-0.526517273,14.2604811 1.74111911,19.0912732 2.73035646,19.7869593 C2.77601357,19.819468 2.81732238,19.8042972 2.75209794,19.7046039 C2.40206011,19.1649596 1.41934521,17.277288 3.44347701,15.4676373 C4.53055102,14.4967109 6.8025357,14.2431431 6.8025357,14.2431431 C6.28508848,10.4374585 6.32204899,7.00020575 8.91580758,3.19018664 C9.24627808,3.40691128 13.0466888,5.08219272 13.181486,10.7105315 C13.4989116,14.2409758 11.6704531,17.0648978 9.89634834,18.165859 C6.7525303,19.8563112 3.22606221,20.6863665 0.158339353,21.4167285 C-0.102558409,21.4774114 -0.000373452442,21.5055856 0.173558389,21.4990839 C7.45912841,21.1913349 13.9359154,17.9057894 16.427489,14.7806202 C16.9058016,14.1781257 17.1210422,13.5127811 16.7970942,13.1465164 C16.4731461,12.7802518 15.8904744,13.3632411 15.7600255,13.5236173 M14.5859856,8.88354283 C14.4927139,7.80102647 14.2293266,6.73985167 13.8054665,5.73886836 C14.5077163,4.27597707 15.2273593,3.73416548 15.2273593,3.73416548 C15.2273593,3.73416548 16.7079541,7.5355156 15.4078136,11.4408935 C14.6055529,13.8573732 13.6424054,15.3180973 13.1271323,15.9444315 C13.0119025,16.0831352 12.9097175,16.1264802 12.9727678,16.0419576 C14.1881165,14.4013521 14.85558,11.7898202 14.5859856,8.89004457" id="Shape" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+</Click>
+```
+
+Click button type submit 
+
+```vue
+    <Click button variant="submit" />
+```
+
+Click button not tracked
+
+```vue
+    <Click id="idNotTracking" button size="xs" variant="primary" label="No tracking !" noTracking/>
+```

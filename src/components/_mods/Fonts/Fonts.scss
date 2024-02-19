@@ -1,0 +1,124 @@
+$h1-fontSize-mob: 38px;
+$h1-fontSize-desk: 48px;
+
+$h2-fontSize-mob: 28px;
+$h2-fontSize-desk: 36px;
+
+$h3-fontSize-mob: 22px;
+$h3-fontSize-desk: 28px;
+
+$h4-fontSize-mob: 18px;
+$h4-fontSize-desk: 24px;
+
+$bigBody-fontSize-mob: 16px;
+$bigBody-fontSize-desk: 18px;
+
+$smallBody-fontSize-mob: 14px;
+$smallBody-fontSize-desk: 14px;
+
+$ml-fontSize-mob: 12px;
+$ml-fontSize-desk: 12px;
+
+// CROSS
+$width-cross-mob: 32px;
+$width-cross-desk: 32px;
+$cross-fontSize-mob: 20px;
+$cross-fontSize-desk: 20px;
+$background-cross-color: #A2A2A7;
+$border-cross-color: #FFFFFF;
+$color-cross-plus: #FFFFFF;
+$border-cross-radius: 100%;
+$margin-mob: vw(16px) auto;
+$margin-desk: du(24px) auto;
+$shadow-cross: 0px 1px 1px -1px rgba(34, 34, 43, 0.08), 0px 4px 8px -2px rgba(34, 34, 43, 0.08), 0px 1px 10px -2px rgba(34, 34, 43, 0.10);
+
+h1 {
+    font-size: vw($h1-fontSize-mob);
+    font-weight: bold;
+
+    @include breakpoint($b-tab-desk) {
+        font-size: du($h1-fontSize-desk);
+    }
+
+}
+h2 {
+    font-size: vw($h2-fontSize-mob);
+    font-weight: bold;
+
+    @include breakpoint($b-tab-desk) {
+        font-size: du($h2-fontSize-desk);
+    }
+}
+h3 {
+    font-size: vw($h3-fontSize-mob);
+    font-weight: bold;
+
+    @include breakpoint($b-tab-desk) {
+        font-size: du($h3-fontSize-desk);
+    }
+}
+h4 {
+    font-size: vw($h4-fontSize-mob);
+    font-weight: bold;
+
+    @include breakpoint($b-tab-desk) {
+        font-size: du($h4-fontSize-desk);
+    }
+}
+.bigBody {
+    font-size: vw($bigBody-fontSize-mob);
+    font-weight: normal;
+
+    @include breakpoint($b-tab-desk) {
+        font-size: du($bigBody-fontSize-desk);
+    }
+    &.bold {
+        font-weight: bold;
+    }
+}
+
+.smallBody {
+    font-size: vw($smallBody-fontSize-mob);
+    font-weight: normal;
+
+    @include breakpoint($b-tab-desk) {
+        font-size: du($smallBody-fontSize-desk);
+    }
+    &.bold {
+        font-weight: bold;
+    }
+}
+.ml {
+    font-size: vw($ml-fontSize-mob);
+    font-weight: normal;
+
+    @include breakpoint($b-tab-desk) {
+        font-size: du($ml-fontSize-desk);
+    }
+    &.bold {
+        font-weight: bold;
+    }
+}
+.plus {
+    position: relative;
+    width: vw($width-cross-mob);
+    height: vw($width-cross-mob);
+    font-size: vw($cross-fontSize-mob);
+    background-color: $background-cross-color;
+    border-radius: $border-cross-radius;
+    border: solid 2px $border-cross-color;
+    margin: $margin-mob;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-cross;
+    color: $color-cross-plus;
+
+    @include breakpoint($b-desk) {
+        width: du($width-cross-desk);
+        height: du($width-cross-desk);
+        font-size: du($cross-fontSize-desk);
+        margin: $margin-desk;
+
+    }
+}

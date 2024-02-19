@@ -1,0 +1,38 @@
+$topBar-c-sticky-background: #f0f0f1;
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    z-index: z('sticky');
+    background-color: $topBar-c-sticky-background;
+    font-family: $t-global-font;
+
+    width: 100%;
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    &__inner {
+        padding: vw(4px) 0;
+
+        @include breakpoint($b-desk) {
+            padding: du(8px) 0;
+        }
+        @media only screen and (min-width: $max-width-container) {
+            padding: 8px 24px;
+        }
+    }
+
+    &__img {
+        height: vw(40px);
+
+        @include breakpoint($b-desk) {
+            height: du(64px);
+        }
+
+        ::v-deep img {
+            width: auto;
+        }
+    }
+}

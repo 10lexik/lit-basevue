@@ -1,0 +1,63 @@
+// Extends display element according to the device
+
+// Only Desk
+%desktop-only {
+    @include breakpoint($b-mob-tab) {
+        display: none !important;
+    }
+}
+::v-deep .desktop-only {
+    @extend %desktop-only;
+}
+
+// Only Mob
+%mob-only {
+    @include breakpoint($b-tab-desk) {
+        display: none !important;
+    }
+}
+::v-deep .mob-only {
+    @extend %mob-only;
+}
+
+// Only Mob and Tab
+%no-desktop {
+    @include breakpoint($b-desk) {
+        display: none !important;
+    }
+}
+::v-deep .no-desktop {
+    @extend %no-desktop;
+}
+
+// Only Tab and Desk
+%no-mob {
+    @include breakpoint($b-mob) {
+        display: none !important;
+    }
+}
+::v-deep .no-mob {
+    @extend %no-mob;
+}
+
+// Only app
+.app-only {
+    @extend %app-only;
+}
+
+%app-only {
+    html:not(.vp-app) & {
+        display: none !important;
+    }
+}
+
+// No app
+.no-app {
+    @extend %no-app;
+}
+
+%no-app {
+    html.vp-app & {
+        display: none !important;
+    }
+}

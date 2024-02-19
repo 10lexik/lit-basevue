@@ -1,0 +1,185 @@
+$timer-clock-width-mob: vw(30px);
+$timer-clock-width-desk: du(35px);
+$half-height-clock-mob: calc($timer-clock-width-mob / 2);
+$half-height-clock-desk: calc($timer-clock-width-mob / 2);
+$timer-bg-color: $c-vp-hover;
+$timer-txt-color: #FFF;
+
+.timer {
+    position: relative;
+    z-index: z('loader') - 1;
+
+    &__container {
+        width: 100%;
+        color: $timer-txt-color;
+
+        &--wrapper {
+            width: 100%;
+            max-width: du(284px);
+            margin: auto;
+        }
+
+        .miniclock {
+            width: $timer-clock-width-mob;
+            margin: 0 auto;
+            background-color: $timer-bg-color;
+            border-radius: 100%;
+
+            @include breakpoint($b-tab-desk) {
+                width: $timer-clock-width-desk;
+            }
+
+            :deep {
+                svg {
+                    path {
+                        stroke: white;
+                        fill: none;
+                    }
+                }
+            }
+        }
+
+        &__miniclock {
+            margin: 0 auto;
+            padding: du(4px);
+
+            :deep {
+                svg {
+                    path {
+                        stroke: white;
+                        fill: none;
+                    }
+                }
+            }
+        }
+
+        &__inner {
+            position: relative;
+            width: fit-content;
+            margin: 0 auto;
+
+            &--bg {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: calc(100% + #{$half-height-clock-mob});
+                transform-origin: center bottom;
+                background-color: $timer-bg-color;
+                border-radius: du(10px);
+                @include breakpoint($b-tab-desk) {
+                    height: calc(100% + #{$half-height-clock-desk});
+                }
+            }
+
+            &__numbers {
+                display: flex;
+                justify-content: center;
+
+                &__miniclock {
+                    &.miniclock {
+                        padding: du(2px) 0;
+                        margin: 0 du(8px) 0 0;
+                        width: $timer-clock-width-mob;
+                        height: $timer-clock-width-mob;
+                        transform: scale(1.2);
+                        @include breakpoint($b-tab-desk) {
+                            width: $timer-clock-width-desk;
+                            height: $timer-clock-width-desk;
+                        }
+                    }
+                }
+
+                &__dots {
+                    font-size: vw(28px);
+                    text-align: center;
+                    font-weight: normal;
+                    display: flex;
+                    flex-direction: column;
+                    align-self: flex-start;
+                    margin: vw(3px) vw(5px) vw(5px) vw(5px);
+                    @include breakpoint($b-tab-desk) {
+                        margin: du(3px) du(5px) du(5px) du(5px);
+                    }
+
+                    :deep {
+                        h3 {
+                            line-height: 1;
+                        }
+                    }
+                }
+
+                &__number {
+                    text-align: center;
+                    font-weight: normal;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: vw(3px);
+                    @include breakpoint($b-tab-desk) {
+                        margin-top: du(5px);
+                    }
+
+                    .time {
+                        &__value {
+                            position: relative;
+                            z-index: 1;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            text-align: center;
+                            overflow: hidden;
+
+                            :deep {
+                                h3 {
+                                    line-height: 1;
+                                    padding-top: vw(2px);
+                                    @include breakpoint($b-tab-desk) {
+                                        padding-top: 0;
+                                    }
+                                }
+                            }
+
+                            &__txt {
+                                position: relative;
+                                display: block;
+                                padding: vw(5px);
+                                overflow: hidden;
+
+                                @include breakpoint($b-tab-desk) {
+                                    padding: 0;
+                                }
+
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    z-index: -1;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 90%;
+                                    height: 90%;
+                                    background: white;
+                                }
+
+                                &--bg {
+                                    position: absolute;
+                                    z-index: -1;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 90%;
+                                    height: 90%;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

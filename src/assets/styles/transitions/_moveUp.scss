@@ -1,0 +1,7 @@
+.move-up-enter-active,
+.move-up-leave-active {
+    transition: all 0.5s 0.5s;
+}
+.move-up-enter, .move-up-leave-to {
+    transform: translateY(-100%);
+}

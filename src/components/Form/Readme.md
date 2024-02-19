@@ -1,0 +1,5 @@
+Simple usage :
+
+```vue
+<Form />
+```

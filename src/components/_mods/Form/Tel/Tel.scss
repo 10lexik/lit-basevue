@@ -1,0 +1,9 @@
+.tel {
+    ::placeholder{
+        color: $c-form-placeholder;
+    }
+    .vue-tel-input:focus-within {
+        box-shadow: none;
+        border-color: transparent;
+    }
+}

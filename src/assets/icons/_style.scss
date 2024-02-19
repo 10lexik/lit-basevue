@@ -1,0 +1,432 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?excqjt');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?excqjt#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?excqjt') format('truetype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?excqjt') format('woff'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?excqjt##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star-half-filled:before {
+    content: "\e983";
+}
+.icon-star-filled:before {
+    content: "\e985";
+}
+.icon-arrow-forward:before {
+    content: "\e984";
+}
+.icon-french-Region:before {
+    content: "\e980";
+}
+.icon-full-heart:before {
+    content: "\e981";
+}
+.icon-half-heart:before {
+    content: "\e982";
+}
+.icon-arrow_down:before {
+    content: "\e902";
+}
+.icon-arrow_left:before {
+    content: "\e903";
+}
+.icon-arrow_right:before {
+    content: "\e904";
+}
+.icon-arrow_up:before {
+    content: "\e905";
+}
+.icon-back:before {
+    content: "\e906";
+}
+.icon-burger_menu:before {
+    content: "\e92e";
+}
+.icon-cross:before {
+    content: "\e92f";
+}
+.icon-android:before {
+    content: "\e907";
+}
+.icon-apple:before {
+    content: "\e908";
+}
+.icon-blog:before {
+    content: "\e909";
+}
+.icon-facebook:before {
+    content: "\e90a";
+}
+.icon-google:before {
+    content: "\e90b";
+}
+.icon-instagram:before {
+    content: "\e90c";
+}
+.icon-linkedin:before {
+    content: "\e90d";
+}
+.icon-pinterest:before {
+    content: "\e90e";
+}
+.icon-snapchat:before {
+    content: "\e90f";
+}
+.icon-twitter:before {
+    content: "\e910";
+}
+.icon-whatsapp:before {
+    content: "\e911";
+}
+.icon-youtube:before {
+    content: "\e912";
+}
+.icon-star:before {
+    content: "\e913";
+}
+.icon-check:before {
+    content: "\e914";
+}
+.icon-audio_description:before {
+    content: "\e93f";
+}
+.icon-captions:before {
+    content: "\e940";
+}
+.icon-chapters:before {
+    content: "\e942";
+}
+.icon-fullscreen_enter:before {
+    content: "\e943";
+}
+.icon-fullscreen_exit:before {
+    content: "\e944";
+}
+.icon-hd:before {
+    content: "\e945";
+}
+.icon-not_allowed:before {
+    content: "\e946";
+}
+.icon-pause:before {
+    content: "\e947";
+}
+.icon-play_circle:before {
+    content: "\e948";
+}
+.icon-play:before {
+    content: "\e949";
+}
+.icon-replay:before {
+    content: "\e94a";
+}
+.icon-settings1:before {
+    content: "\e94c";
+}
+.icon-volume_high:before {
+    content: "\e94b";
+}
+.icon-volume_low:before {
+    content: "\e94d";
+}
+.icon-volume_mid:before {
+    content: "\e94e";
+}
+.icon-volume_mute:before {
+    content: "\e94f";
+}
+.icon-beauty_thematic:before {
+    content: "\e95f";
+}
+.icon-camping_thematic:before {
+    content: "\e950";
+}
+.icon-clothing_thematic:before {
+    content: "\e951";
+}
+.icon-crafts_garden_thematic:before {
+    content: "\e952";
+}
+.icon-cruise_thematic:before {
+    content: "\e953";
+}
+.icon-decoration_thematic:before {
+    content: "\e954";
+}
+.icon-equipment_supplies_thematic:before {
+    content: "\e955";
+}
+.icon-fashion_category:before {
+    content: "\e956";
+}
+.icon-flight_thematic:before {
+    content: "\e957";
+}
+.icon-flight_hotel_thematic:before {
+    content: "\e958";
+}
+.icon-furnitures_thematic:before {
+    content: "\e959";
+}
+.icon-gastronomy_thematic:before {
+    content: "\e95a";
+}
+.icon-high-tech_thematic:before {
+    content: "\e95b";
+}
+.icon-home_appliance_thematic:before {
+    content: "\e95c";
+}
+.icon-hotel_thematic:before {
+    content: "\e95d";
+}
+.icon-house_category:before {
+    content: "\e95e";
+}
+.icon-jewelry_watches_thematic:before {
+    content: "\e960";
+}
+.icon-kitchenware_thematic:before {
+    content: "\e961";
+}
+.icon-leather_luggage_thematic:before {
+    content: "\e963";
+}
+.icon-leisure_category:before {
+    content: "\e962";
+}
+.icon-linens_thematic:before {
+    content: "\e964";
+}
+.icon-shoes_thematic:before {
+    content: "\e965";
+}
+.icon-sport_thematic:before {
+    content: "\e966";
+}
+.icon-tourist_circuit_thematic:before {
+    content: "\e96b";
+}
+.icon-travel_category:before {
+    content: "\e967";
+}
+.icon-underwear_bath_thematic:before {
+    content: "\e968";
+}
+.icon-wine_spirits_thematic:before {
+    content: "\e969";
+}
+.icon-wines_gastronomy_thematic:before {
+    content: "\e96a";
+}
+.icon-cc-filled:before {
+    content: "\e97f";
+}
+.icon-cc:before {
+    content: "\e97d";
+}
+.icon-pin_map:before {
+    content: "\e941";
+}
+.icon-lock_closed:before {
+    content: "\e900";
+}
+.icon-lock_open:before {
+    content: "\e901";
+}
+.icon-recommendation_stars:before {
+    content: "\e929";
+}
+.icon-recommendation_thumb:before {
+    content: "\e92d";
+}
+.icon-apps:before {
+    content: "\e915";
+}
+.icon-ask_question:before {
+    content: "\e916";
+}
+.icon-cart:before {
+    content: "\e917";
+}
+.icon-check1:before {
+    content: "\e918";
+}
+.icon-communication:before {
+    content: "\e919";
+}
+.icon-contact_us:before {
+    content: "\e91a";
+}
+.icon-delete:before {
+    content: "\e91b";
+}
+.icon-disconnection:before {
+    content: "\e91c";
+}
+.icon-edit:before {
+    content: "\e91d";
+}
+.icon-error:before {
+    content: "\e91e";
+}
+.icon-favorites_filled:before {
+    content: "\e91f";
+}
+.icon-favorites:before {
+    content: "\e920";
+}
+.icon-filters:before {
+    content: "\e921";
+}
+.icon-gift:before {
+    content: "\e922";
+}
+.icon-guide_size:before {
+    content: "\e923";
+}
+.icon-home:before {
+    content: "\e924";
+}
+.icon-homepart_soon:before {
+    content: "\e925";
+}
+.icon-info:before {
+    content: "\e926";
+}
+.icon-my_cb:before {
+    content: "\e927";
+}
+.icon-notification_settings:before {
+    content: "\e928";
+}
+.icon-password_hide:before {
+    content: "\e92a";
+}
+.icon-password_see:before {
+    content: "\e92b";
+}
+.icon-phone:before {
+    content: "\e92c";
+}
+.icon-reinsurance_commitment_vp:before {
+    content: "\e930";
+}
+.icon-reinsurance_delivery:before {
+    content: "\e931";
+}
+.icon-reinsurance_pricing:before {
+    content: "\e932";
+}
+.icon-reinsurance_return:before {
+    content: "\e933";
+}
+.icon-reset:before {
+    content: "\e934";
+}
+.icon-search:before {
+    content: "\e935";
+}
+.icon-settings:before {
+    content: "\e936";
+}
+.icon-success:before {
+    content: "\e937";
+}
+.icon-tips:before {
+    content: "\e938";
+}
+.icon-trust:before {
+    content: "\e939";
+}
+.icon-use_store:before {
+    content: "\e93a";
+}
+.icon-vouchers:before {
+    content: "\e93b";
+}
+.icon-warning:before {
+    content: "\e93c";
+}
+.icon-who_you_are:before {
+    content: "\e93d";
+}
+.icon-zoom:before {
+    content: "\e93e";
+}
+.icon-favorites_half:before {
+    content: "\e97e";
+    color: #464650;
+}
+.icon-dyson:before {
+    content: "\e979";
+}
+.icon-veepee1:before {
+    content: "\e96c";
+}
+.icon-veepee2:before {
+    content: "\e96d";
+}
+.icon-carterose-by-veepee-1:before {
+    content: "\e96e";
+}
+.icon-carterose-by-veepee-2:before {
+    content: "\e971";
+}
+.icon-share:before {
+    content: "\e97a";
+}
+.icon-profile:before {
+    content: "\e97b";
+}
+.icon-tendre:before {
+    content: "\e978";
+}
+.icon-switch-bg:before {
+    content: "\e977";
+}
+.icon-switch-handle:before {
+    content: "\e975";
+}
+.icon-arrow-down-bis:before {
+    content: "\e976";
+}
+.icon-carte-rose-1:before {
+    content: "\e974";
+}
+.icon-vp-logo:before {
+    content: "\e970";
+}
+.icon-carte-rose-2:before {
+    content: "\e96f";
+}
+.icon-carte-rose-3:before {
+    content: "\e973";
+}
+.icon-carte-rose-avantage-1:before {
+    content: "\e972";
+}
+.icon-carte-rose-avantage-2:before {
+    content: "\e97c";
+}

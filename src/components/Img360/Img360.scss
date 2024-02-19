@@ -1,0 +1,7 @@
+.img360 {
+    cursor: grab;
+
+    &.grabbing {
+        cursor: grabbing;
+    }
+}

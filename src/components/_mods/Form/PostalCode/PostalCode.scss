@@ -1,0 +1,16 @@
+
+.postalcode {
+    &__container {
+        &__input {
+            &::placeholder{
+                color: $c-form-placeholder;
+                font-size: 16px;
+            }
+        }
+        .cp-error {
+            color: red;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+    }
+}

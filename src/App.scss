@@ -1,0 +1,8 @@
+$app-background: #FFF;
+
+.app {
+    &__container{
+        position: relative;
+        background: $app-background;
+    }
+}

@@ -1,0 +1,49 @@
+$color-title: $c-text;
+$color-subtitle: $color-title;
+
+.stacking {
+    position: relative;
+    height: vw(560px); // iPhone 5/5S compatible fallback
+    height: calc(var(--vh, 1vh) * 100); // Real 100% height
+
+    &__content {
+        position: relative;
+        width: 100%;
+        max-width: vw(320px);
+        margin: auto;
+        @include breakpoint($b-tab-desk) {
+            max-width: du(640px);
+        }
+        > .bloc {
+            width: 100%;
+            height: auto;
+            margin: auto;
+            &:not(&:nth-of-type(1)) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    &__center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    &__title {
+        text-align: center;
+        margin: 0 0 vw(32px);
+        color: $color-title;
+
+        @include breakpoint($b-tab-desk) {
+            margin: 0 0 du(48px);
+        }
+
+        ::v-deep p {
+            color: $color-subtitle;
+        }
+    }
+}

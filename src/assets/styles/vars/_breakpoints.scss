@@ -1,0 +1,37 @@
+////
+/// @group breakpoints
+////
+
+/// convertion de breakpoint px en em
+/// @param {px} width
+/// @example
+///  $b-desk: b-em(1000);
+@function b-em($value-px) {
+    $value-em: calc($value-px / 16);
+
+    @return $value-em*1em;
+}
+
+/// breakpoint desktop extra-extra-large (laptops aren't xxlarge)
+$b-xxlarge: b-em(1800);
+
+/// breakpoint desktop extra-large
+$b-xlarge: b-em(1200);
+
+/// breakpoint desktop
+$b-desk: b-em(992);
+
+/// breakpoint tablet
+$b-tab: b-em(768) b-em(991);
+
+/// breakpoint mobile
+$b-mob: b-em(0) b-em(767);
+
+/// breakpoint mini mobile (like iPhone 4, Iphone 5/SE, Galaxy S5, ...)
+$b-little-mob: b-em(0) b-em(320);
+
+// breakpoint tablet and desktop
+$b-tab-desk: b-em(767);
+
+// breakpoint mobile and tablet
+$b-mob-tab: b-em(0) b-em(991);

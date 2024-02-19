@@ -1,0 +1,134 @@
+$color-bg-popin: #ffffff;
+$color-title: $c-text;
+$color-subtitle: $color-title;
+$color-text: $c-text;
+$color-pagination: #464650;
+
+.howto {
+    position: relative;
+    &.slider {
+        padding: vw(48px) 0 0;
+        @include breakpoint($b-tab-desk) {
+            padding: du(96px) 0;
+        }
+        .swiper-slide {
+            opacity: 0.4;
+            transition: all 1s;
+        }
+        .swiper-slide-active {
+            opacity: 1;
+        }
+    }
+    &__header {
+        position: relative;
+        min-height: vw(50px);
+        @include breakpoint($b-tab-desk) {
+            min-height: du(50px);
+        }
+    }
+    &__title {
+        text-align: center;
+        padding: 0 vw(44px);
+        margin: 0 0 vw(24px);
+        color: $color-title;
+
+        @include breakpoint($b-tab-desk) {
+            max-width: du(332px);
+            padding: 0;
+            margin: 0 auto du(39px);
+        }
+
+        ::v-deep p {
+            color: $color-subtitle;
+        }
+    }
+    &__swiper {
+        max-width: du(1456px);
+        margin: auto;
+    }
+    &__popin {
+        text-align: center;
+        border-radius: 8px;
+        background: $color-bg-popin;
+        box-shadow: 0px 1px 1px -1px rgba(34, 34, 43, 0.08), 0px 4px 8px -2px rgba(34, 34, 43, 0.08), 0px 1px 10px -2px rgba(34, 34, 43, 0.10);
+        padding: vw(24px) vw(24px);
+        width: vw(260px);
+        margin: auto;
+
+        @include breakpoint($b-tab-desk) {
+            width: du(432px);
+            padding: du(24px) du(48px);
+        }
+
+        .slider & {
+            margin: vw(10px) auto vw(50px);
+            @include breakpoint($b-tab-desk) {
+                margin: du(10px) auto du(70px);
+            }
+        }
+
+        &_img {
+            .small & {
+                width: vw(48px);
+                margin: 0 auto vw(16px);
+                @include breakpoint($b-tab-desk) {
+                    width: du(42px);
+                    margin: 0 auto du(24px);
+                }
+            }
+        }
+        &_text {
+            color: $color-text;
+
+            .big & {
+                margin: 0 auto vw(16px);
+                @include breakpoint($b-tab-desk) {
+                    margin: 0 auto du(24px);
+                }
+            }
+        }
+    }
+
+    &__button {
+        position: absolute;
+        cursor: pointer;
+        width: vw(24px);
+        top: 20vw;
+
+        @include breakpoint($b-tab-desk) {
+            width: du(24px);
+            top: du(120px);
+        }
+
+        &-next {
+            top: 50%;
+            right: 8vw;
+            transform: translateY(-50%);
+            @include breakpoint($b-tab-desk) {
+                right: auto;
+                left: calc(50% + du(300px));
+                transform: translate(-50%, -50%);
+            }
+        }
+        &-prev {
+            top: 50%;
+            left: 8vw;
+            transform: translateY(-50%) rotate(180deg);
+            @include breakpoint($b-tab-desk) {
+                right: auto;
+                left: calc(50% - du(300px));
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+        }
+        &.swiper-button-disabled {
+            transition: all 1s;
+            opacity: 0.1;
+        }
+    }
+
+    &__swiper {
+        ::v-deep .swiper-pagination-bullet {
+            background-color: $color-pagination;
+        }
+    }
+}

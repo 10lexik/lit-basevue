@@ -1,0 +1,11 @@
+$guss-rem-baseline: 16px !default;
+
+// vh(10px) = 10px when browser is at 1080px height
+@function vh($value, $baseline: $guss-rem-baseline) {
+    @return if(type-of($value) == number and unit($value) == px, calc($value / $baseline * 1.481485vh), $value);
+}
+
+// Based on template device used by creative (Galaxy S5)
+@function vhMob($value, $baseline: $guss-rem-baseline) {
+    @return if(type-of($value) == number and unit($value) == px, calc($value / $baseline * 2.5vh), $value);
+}

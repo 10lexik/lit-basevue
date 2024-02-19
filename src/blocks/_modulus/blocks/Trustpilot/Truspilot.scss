@@ -1,0 +1,109 @@
+$width-icon-rating-mob: 108px;
+$width-icon-rating-desk: 166px;
+$width-logo-mob: 80px;
+$width-logo-desk: 120px;
+$color-title: $c-text;
+$color-text: $c-text;
+
+//style slider pagination
+$background-color-dot: #00b67a;
+
+.trustpilot {
+
+    &__wrapper {
+        padding: vw(48px) vw(16px);
+
+        @include breakpoint($b-tab-desk) {
+            margin: auto;
+            padding: du(96px) 0;
+        }
+    }
+
+    &__title, &__text {
+        text-align: center;
+    }
+
+    &__title {
+        color: $color-title;
+    }
+
+    &__text {
+        color: $color-text;
+    }
+
+    &__row, &__slider__card{
+        margin: vw(32px) 0 0;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: vw(8px);
+
+        @include breakpoint($b-tab-desk) {
+            margin: du(48px) 0 0;
+            gap: du(8px);
+        }
+    }
+
+    &__rating {
+        display: flex;
+        gap: vw(4px);
+        width: vw($width-icon-rating-mob);
+
+        @include breakpoint($b-tab-desk) {
+            gap: du(4px);
+            width: du($width-icon-rating-desk);
+        }
+    }
+
+    &__slider {
+
+        @include breakpoint($b-tab-desk) {
+            margin: auto;
+            overflow: hidden;
+        }
+
+        &__card {
+            position: relative;
+            margin: vw(32px) auto 0;
+
+            @include breakpoint($b-tab-desk) {
+                margin: du(48px) auto 0;
+            }
+        }
+
+        &__pagination {
+
+            @include breakpoint($b-tab-desk) {
+                width: fit-content;
+                margin: du(24px) auto;
+            }
+
+            ::v-deep .swiper-pagination-bullet {
+                background-color: $background-color-dot;
+            }
+        }
+    }
+
+    &__based {
+        margin: vw(16px) 0 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        gap: vw(4px);
+
+        @include breakpoint($b-tab-desk) {
+            margin: du(16px) 0 0;
+            gap: du(4px);
+        }
+
+        &__logo {
+            width: vw($width-logo-mob);
+
+            @include breakpoint($b-tab-desk) {
+                width: du($width-logo-desk);
+            }
+        }
+    }
+}

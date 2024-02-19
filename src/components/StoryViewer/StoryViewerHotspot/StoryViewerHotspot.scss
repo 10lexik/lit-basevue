@@ -1,0 +1,37 @@
+$storyviewerhotspot-c-btn: $c-vp;
+$storyviewerhotspot-c-btn-hover: $c-vp-hover;
+$storyviewerhotspot-c-annotation-background: #ffffff;
+
+.StoryViewerHotspot {
+    position: relative;
+
+    &__button {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 50%;
+        background-color: $storyviewerhotspot-c-btn;
+        transition: background-color 0.1s ease-in-out;
+        outline: none;
+        cursor: default;
+
+        &--toggle {
+            cursor: pointer;
+
+            &:hover {
+                background-color: $storyviewerhotspot-c-btn-hover;
+            }
+        }
+    }
+
+    &__annotation {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(100%, 100%);
+        background-color: $storyviewerhotspot-c-annotation-background;
+        padding: 10px;
+        min-width: 200px;
+    }
+}

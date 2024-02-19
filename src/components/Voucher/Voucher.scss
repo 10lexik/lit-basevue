@@ -1,0 +1,77 @@
+$shadow-button: 0px 1px 1px -1px rgba(34, 34, 43, 0.08), 0px 4px 8px -2px rgba(34, 34, 43, 0.08), 0px 1px 10px -2px rgba(34, 34, 43, 0.10);
+$background-color-button: linear-gradient(74deg, #E7A541 0%, rgba(231, 165, 65, 0.00) 100%), #EC008C;
+$padding-inner-mob: du(10px) du(24px);
+$padding-inner-desk: du(12px) du(24px);
+$font-size-mob: vw(16px);
+$font-size-desk: du(18px);
+$font-weight: 700;
+$background-color-inner: #ffffff;
+$width-icon-mob: vw(20px);
+$width-icon-desk: du(20px);
+$color-icon: #EC008C;
+$color-code: $c-text;
+
+.voucher {
+    &__button {
+        position: relative;
+        padding: vw(2px);
+        box-shadow: $shadow-button;
+        background: $background-color-button;
+
+        @include breakpoint($b-tab-desk) {
+            padding: du(2px);
+        }
+
+        &__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $background-color-button;
+            z-index: -1;
+        }
+
+        &__inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            padding: $padding-inner-mob;
+            background-color: $background-color-inner;
+            gap: vw(8px);
+
+            @include breakpoint($b-tab-desk) {
+                padding: $padding-inner-desk;
+                gap: du(8px);
+            }
+        }
+
+
+        &__text {
+            font-size: $font-size-mob;
+            font-weight: $font-weight;
+            color: $color-code;
+
+            @include breakpoint($b-tab-desk) {
+                font-size: $font-size-desk;
+            }
+        }
+
+        &__icon {
+            width: $width-icon-mob;
+            height: $width-icon-mob;
+
+            @include breakpoint($b-tab-desk) {
+                width: $width-icon-desk;
+                height: $width-icon-desk;
+            }
+
+            ::v-deep svg {
+                .line {
+                    stroke: $color-icon;
+                }
+            }
+        }
+    }
+}

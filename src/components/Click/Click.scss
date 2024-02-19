@@ -1,0 +1,391 @@
+//button style
+$btn-text-color: #FFFFFF;
+$btn-width-icon: 16px;
+$btn-color-fill: #FFFFFF;
+$btn-background: rgb(236, 0, 140);
+$btn-border-radius : 2px;
+$btn-border-color: 0;
+$btn-shadow: 0px 1px 1px -1px rgba(34, 34, 43, 0.08), 0px 4px 8px -2px rgba(34, 34, 43, 0.08), 0px 1px 10px -2px rgba(34, 34, 43, 0.10);
+$btn-hover: rgba($btn-background, 0.5);
+$btn-gap: 8px;
+
+// button xs
+$btn-xs-padding-y: 8px;
+$btn-xs-padding-x: 16px;
+$btn-xs-font-size-mob: 14px;
+$btn-xs-font-size-desk: 16px;
+$btn-xs-font-weight: 700;
+$btn-xs-size-icon: 20px;
+$btn-xs-height: 34px;
+$btn-xs-height-desk: 40px;
+$btn-xs-line-height: 16px;
+
+//button s
+$btn-s-padding-y: 10px;
+$btn-s-padding-x: 32px;
+$btn-s-font-size-mob: 14px;
+$btn-s-font-size-desk: 16px;
+$btn-s-font-weight: 700;
+$btn-s-size-icon: 22px;
+$btn-s-height: 38px;
+$btn-s-height-desk: 46px;
+$btn-s-line-height: 16px;
+
+
+//button M
+$btn-m-padding-y: 12px;
+$btn-m-padding-x: 24px;
+$btn-m-font-size-mob: 16px;
+$btn-m-font-size-desk: 18px;
+$btn-m-font-weight: 700;
+$btn-m-size-icon: 24px;
+$btn-m-height: 42px;
+$btn-m-height-desk: 52px;
+$btn-m-line-height: 16px;
+
+//button variant style secondary
+$btn-background-secondary: #FFFFFF;
+$btn-border-color-secondary: #464650;
+$btn-text-color-secondary: #464650;
+$btn-text-color-secondary-hover: #EA51A3;
+$btn-border-color-secondary-hover: #EA51A3;
+
+//button variant style link
+$btn-text-color-link: #464650;
+$btn-text-color-link-hover: #EA51A3;
+$btn-gap-link: 6px;
+
+//button variant style disabled
+$btn-background-disabled: #F7F7F7;
+$btn-border-color-disabled: #A2A2A7;
+$btn-text-color-disabled: #A2A2A7;
+
+//button variant style submit
+$btn-submit-color:#FFFFFF;
+$btn-submit-background: rgb(236, 0, 140);
+$btn-submit-border-radius : 2px;
+
+
+.click {
+    position: relative;
+    display: block;
+    width: fit-content;
+
+    &__inner {
+
+        &__button {
+            cursor: pointer;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: $btn-background;
+            color: $btn-text-color;
+            border-radius: vw($btn-border-radius);
+            box-shadow: $btn-shadow;
+            gap: vw($btn-gap);
+
+            @include breakpoint($b-tab-desk) {
+                border-radius: du($btn-border-radius);
+                gap: du($btn-gap);
+            }
+
+            &:hover{
+                background-color: $btn-hover;
+                transition: background .3s ease-in-out;
+
+                .btn-icon {
+                    opacity: 0.7;
+                    transition: opacity .3s ease-in-out;
+                }
+            }
+
+            &__label, &__icon {
+                display: block;
+            }
+
+            &__label {
+                white-space: nowrap;
+            }
+
+            ::v-deep .icon-svg svg {
+                width: 100%;
+                height: 100%;
+                g {
+                    fill: $btn-color-fill;
+                }
+            }
+        }
+
+        .btn-override {
+            cursor: pointer;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        //style type button
+        .btn-xs{
+            padding: vw($btn-xs-padding-y) vw($btn-xs-padding-x);
+            height: vw($btn-xs-height);
+            line-height: vw($btn-xs-line-height);
+            font-size: vw($btn-xs-font-size-mob);
+            font-weight: $btn-xs-font-weight;
+
+            @include breakpoint($b-tab-desk) {
+                padding: du($btn-xs-padding-y) du($btn-xs-padding-x + $btn-xs-padding-y);
+                height: du($btn-xs-height-desk);
+                line-height: du($btn-xs-line-height);
+                font-size: du($btn-xs-font-size-desk);
+            }
+
+            .btn-icon {
+                width: vw($btn-xs-size-icon);
+                height: vw($btn-xs-size-icon);
+
+                @include breakpoint($b-desk) {
+                    width: du($btn-xs-size-icon);
+                    height: du($btn-xs-size-icon);
+                }
+            }
+        }
+
+        .btn-s {
+            padding: vw($btn-s-padding-y) vw($btn-s-padding-x);
+            height: vw($btn-s-height);
+            line-height: vw($btn-s-line-height);
+            font-size: vw($btn-s-font-size-mob);
+            font-weight: $btn-s-font-weight;
+
+            @include breakpoint($b-tab-desk) {
+                padding: du($btn-s-padding-y) du($btn-s-padding-x + $btn-s-padding-y);
+                height: du($btn-s-height-desk);
+                line-height: du($btn-s-line-height);
+                font-size: du($btn-s-font-size-desk)
+            }
+
+            .btn-icon {
+                width: vw($btn-s-size-icon);
+                height: vw($btn-s-size-icon);
+
+                @include breakpoint($b-tab-desk) {
+                    width: du($btn-s-size-icon);
+                    height: du($btn-s-size-icon);
+                }
+            }
+        }
+
+        .btn-m {
+            padding: vw($btn-m-padding-y) vw($btn-m-padding-x);
+            height: vw($btn-m-height);
+            line-height: vw($btn-m-line-height);
+            font-size: vw($btn-m-font-size-mob);
+            font-weight: $btn-m-font-weight;
+
+            @include breakpoint($b-tab-desk) {
+                padding: du($btn-m-padding-y) du($btn-m-padding-x + $btn-m-padding-y);
+                height: du($btn-m-height-desk);
+                line-height: du($btn-m-line-height);
+                font-size: du($btn-m-font-size-desk);
+            }
+
+            .btn-icon {
+                width: vw($btn-m-size-icon);
+                height: vw($btn-m-size-icon);
+
+                @include breakpoint($b-desk) {
+                    width: du($btn-m-size-icon);
+                    height: du($btn-m-size-icon);
+                }
+            }
+        }
+
+        //style vairants
+        .secondary {
+            border: solid 1px $btn-border-color-secondary;
+            background-color: $btn-background-secondary;
+            color: $btn-text-color-secondary;
+
+            &:hover {
+                border-color: $btn-border-color-secondary-hover;
+                color: $btn-text-color-secondary-hover;
+                transition: all .2s ease-in-out;
+            }
+        }
+
+        .disabled {
+            cursor: not-allowed;
+
+            .button {
+                background-color: $btn-background-secondary;
+                border: solid 1px $btn-border-color-disabled;
+                color: $btn-border-color-disabled;
+            }
+
+            .link {
+                background-color: transparent;
+                border: none;
+
+                &:hover {
+                    color: $btn-border-color-disabled;
+                }
+            }
+        }
+
+        .link {
+            color: $btn-text-color-link;
+            padding: 0px !important;
+            height: fit-content;
+            background-color: transparent;
+            box-shadow: none;
+            gap: vw($btn-gap-link);
+
+            @include breakpoint($b-tab-desk) {
+                gap: du($btn-gap-link);
+            }
+
+            &:hover {
+                color: $btn-text-color-link-hover;
+            }
+
+            .btn-label {
+                text-decoration: underline;
+            }
+
+            .btn-icon {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .submit {
+            -webkit-appearance: none;
+            appearance: none;
+            border: none;
+            margin: auto;
+            color: $btn-submit-color;
+            background-color: $btn-submit-background;
+            border-radius: vw($btn-submit-border-radius);
+            box-shadow: $btn-shadow;
+
+            @include breakpoint($b-tab-desk) {
+                border-radius: du($btn-submit-border-radius);
+            }
+
+            &:hover {
+                background-color: $btn-hover;
+                transition: background .3s ease-in-out;
+            }
+        }
+
+        .btn-submit-xs {
+            padding: vw($btn-xs-padding-y) vw($btn-xs-padding-x);
+            height: vw($btn-xs-height);
+            line-height: vw($btn-xs-line-height);
+            font-size: vw($btn-xs-font-size-mob);
+            font-weight: $btn-xs-font-weight;
+
+            @include breakpoint($b-tab-desk) {
+                padding: du($btn-xs-padding-y) du($btn-xs-padding-x + $btn-xs-padding-y);
+                height: du($btn-xs-height-desk);
+                line-height: du($btn-xs-line-height);
+                font-size: du($btn-xs-font-size-desk);
+            }
+        }
+
+        .btn-submit-s {
+            padding: vw($btn-s-padding-y) vw($btn-s-padding-x);
+            height: vw($btn-s-height);
+            line-height: vw($btn-s-line-height);
+            font-size: vw($btn-s-font-size-mob);
+            font-weight: $btn-s-font-weight;
+
+            @include breakpoint($b-tab-desk) {
+                padding: du($btn-s-padding-y) du($btn-s-padding-x + $btn-s-padding-y);
+                height: du($btn-s-height-desk);
+                line-height: du($btn-s-line-height);
+                font-size: du($btn-xs-font-size-desk)
+            }
+
+        }
+
+        .btn-submit-m {
+            padding: vw($btn-m-padding-y) vw($btn-m-padding-x);
+            height: vw($btn-m-height);
+            line-height: vw($btn-m-line-height);
+            font-size: vw($btn-m-font-size-mob);
+            font-weight: $btn-m-font-weight;
+
+            @include breakpoint($b-tab-desk) {
+                padding: du($btn-m-padding-y) du($btn-m-padding-x + $btn-m-padding-y);
+                height: du($btn-m-height-desk);
+                line-height: du($btn-m-line-height);
+                font-size: du($btn-m-font-size-desk);
+            }
+        }
+
+
+    }
+
+    // If there is a #debug param in url
+    &__tracked {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        min-width: 96%;
+        min-height: 100%;
+        padding: 0 2%;
+        word-break: break-word;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        background-color: rgba(33, 33, 33, 0.8);
+        border: 2px solid yellow;
+
+        &.animation {
+            animation: pulse 1s ease-in-out;
+            animation-delay: .2s;
+        }
+
+        & span {
+            background-color: #ffffff;
+            margin-bottom: 2px;
+            padding: 2px;
+        }
+
+        &--label {
+            color: cornflowerblue;
+            white-space: nowrap;
+        }
+
+        &--event {
+            color: red;
+        }
+
+        &--href {
+            color: green;
+        }
+    }
+}
+
+//default block 100%
+.click-block {
+    display: block;
+    width: 100%;
+
+    .submit {
+        width: 100%;
+    }
+}
+
+.click-center {
+    margin: auto;
+}

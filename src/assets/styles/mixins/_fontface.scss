@@ -1,0 +1,19 @@
+@mixin font-face($name, $file, $folder, $category, $weight, $style) {
+    $filepath: "~@/assets/fonts/" + $folder + "/" + $file;
+    @font-face {
+        font-family: "#{$name}";
+        font-weight: #{$weight};
+        font-style: #{$style};
+        src: url($filepath + ".woff") format('woff'), url($filepath + ".woff2") format('woff2'); //, url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+    }
+    %#{$name} {
+        font: {
+            @if $category != "" {
+                family: "#{$name}", #{$category};
+            }
+            @else {
+                family: "#{$name}";
+            }
+        }
+    }
+}

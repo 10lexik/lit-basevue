@@ -1,0 +1,103 @@
+@use "sass:map";
+@use "sass:list";
+@import "./../../../../node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import "./../vars/breakpoints";
+@import "./../vars/pxtorem";
+@import "./../vars/pxtovh";
+@import "./../vars/pxtovw";
+@import "./../vars/du";
+
+$spacing: 8px ;
+@for $i from 0 through 16 {
+    $types:
+        ("name": p, "categoriea": padding, "categoriey": (padding-top, padding-bottom), "categoriex": (padding-left, padding-right), "categoriet": padding-top, "categorier": padding-right, "categorieb": padding-bottom, "categoriel": padding-left),
+        ("name": m, "categoriea": margin, "categoriey": (margin-top, margin-bottom), "categoriex": (margin-left, margin-right), "categoriet": margin-top, "categorier": margin-right, "categorieb": margin-bottom, "categoriel": margin-left);
+    @each $type in $types {
+        $value : calc( $spacing * $i);
+        $directions: 
+            ("name": a),
+            ("name": y),
+            ("name": x),
+            ("name": t),
+            ("name": r), 
+            ("name": b), 
+            ("name": l);
+        .#{map.get($type, "name")} {
+            @each $direction in $directions {
+                $properties: map.get($type, "categorie"+map.get($direction, "name"));
+                $nameValue: $i;
+
+                &#{map.get($direction, "name")}{
+                    @if (length($properties) == 1 ) {
+                        &-#{$nameValue} {
+                            #{$properties}: vw($value);
+                            @include breakpoint($b-tab-desk) {
+                                #{$properties}: du($value);
+                            }
+                        }
+                        &-mob-#{$nameValue} {
+                            @include breakpoint($b-mob) {
+                                #{$properties}: vw($value);
+                            }
+                        }
+                        &-tab-#{$nameValue} {
+                            @include breakpoint($b-tab) {
+                                #{$properties}: du($value);
+                            }
+                        }
+                        &-desk-#{$nameValue} {
+                            @include breakpoint($b-desk) {
+                                #{$properties}: du($value);
+                            }
+                        }
+                    } @else {
+                        &-#{$nameValue} {
+                            @each $propertie in $properties {
+                                #{$propertie}: vw($value);
+                            }
+                            @include breakpoint($b-tab-desk) {
+                                @each $propertie in $properties {
+                                    #{$propertie}: du($value);
+                                }
+                            }
+                        }
+                        &-mob-#{$nameValue} {
+                            @include breakpoint($b-mob) {
+                                @each $propertie in $properties {
+                                    #{$propertie}: vw($value);
+                                }
+                            }
+                        }
+                        &-tab-#{$nameValue} {
+                            @include breakpoint($b-tab) {
+                                @each $propertie in $properties {
+                                    #{$propertie}: du($value);
+                                }
+                            }
+                        }
+                        &-desk-#{$nameValue} {
+                            @include breakpoint($b-desk) {
+                                @each $propertie in $properties {
+                                    #{$propertie}: du($value);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}

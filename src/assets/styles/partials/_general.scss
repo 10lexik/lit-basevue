@@ -1,0 +1,24 @@
+html, body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    overflow-x: hidden;
+
+    & > * {
+        font-family: $t-global-font;
+        font-size: $g-font-size-mob;
+        color: $c-text;
+
+        @include breakpoint($b-desk) {
+            font-size: $g-font-size-desk;
+        }
+    }
+}
+
+#app {
+    overflow: hidden;
+}
+
+::v-deep .bold {
+    font-weight: bold;
+}

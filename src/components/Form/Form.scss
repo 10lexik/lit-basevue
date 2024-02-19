@@ -1,0 +1,36 @@
+.form {
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__field {
+
+        &--text {
+
+            input {
+                width: 100%;
+            }
+        }
+
+        &--checkbox {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+
+            label {
+                display: inline-block;
+                margin-left: vw(5px);
+
+                @include breakpoint($b-desk) {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+
+    &__error {
+        color: #eb0000;
+    }
+}

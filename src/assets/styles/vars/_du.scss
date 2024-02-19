@@ -1,0 +1,29 @@
+$defaultValue : rem ;
+
+@import "./../compiled/remSpacing";
+@import "./../compiled/vhSpacing";
+@import "./../compiled/vwSpacing";
+
+@if $defaultValue == vh {
+    @include vhSpacing;
+}
+@else if $defaultValue == vw {
+    @include vwSpacing;
+}
+@else {
+    @include remSpacing;
+}
+
+// du is a contraction of deskUnit
+@function du($value, $unit: $defaultValue) {
+
+    @if $unit == vh {
+        @return vh($value);
+    }
+    @else if $unit == vw {
+        @return vw($value);
+    }
+    @else {
+        @return rem($value);
+    }
+}

@@ -1,0 +1,154 @@
+$spacing-mob: vw(48px) vw(16px);
+$spacing-desk: du(96px) 0;
+$spacing-item-mob: 0 0 vw(24px);
+$spacing-item-desk: 0 du(10px);
+$max-width-desk: 90%;
+
+//color text
+$color-reinsurance-text: $c-text;
+$color-title: $color-reinsurance-text;
+$color-subtitle: $color-title;
+$color-text-horizontal-list: $color-reinsurance-text;
+$color-text-grid-list: $color-reinsurance-text;
+$color-text-icon-list: $color-reinsurance-text;
+
+.reinsurance {
+    padding: $spacing-mob;
+
+    @include breakpoint($b-tab-desk) {
+        padding: $spacing-desk ;
+    }
+
+    &__title {
+        text-align: center;
+        margin: 0 0 vw(32px);
+        color: $color-title;
+
+        @include breakpoint($b-tab-desk) {
+            margin:0 0 du(48px);
+        }
+
+        ::v-deep & p {
+            color: $color-subtitle;
+        }
+    }
+
+    &__list {
+        @include breakpoint($b-tab-desk) {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 100%;
+            max-width: $max-width-desk;
+        }
+
+        &--horizontalList {
+            @include breakpoint($b-tab-desk) {
+                align-items: flex-start;
+            }
+        }
+
+        &--iconGrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            @include breakpoint($b-tab-desk) {
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .icon {
+                width: 58%;
+
+                @include breakpoint($b-tab-desk) {
+                    width: 40%;
+                }
+            }
+        }
+    }
+
+    &__item {
+        margin: $spacing-item-mob;
+
+        @include breakpoint($b-tab-desk) {
+            margin: $spacing-item-desk;
+        }
+
+        &--iconList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+
+            @include breakpoint($b-tab-desk) {
+                justify-content: center;
+            }
+        }
+
+        &--iconGrid {
+            width: 48%;
+            margin: 0 0 vw(24px);
+
+            @include breakpoint($b-tab-desk) {
+                width: auto;
+                margin: $spacing-item-desk;
+            }
+        }
+
+    }
+
+    &__illustration {
+        &--iconList {
+            width: vw(48px);
+            margin-right: vw(12px);
+
+            @include breakpoint($b-tab-desk) {
+                width: du(48px);
+                margin-right: du(12px);
+            }
+        }
+
+        &--horizontalList {
+            margin-bottom: vw(8px);
+
+            @include breakpoint($b-tab-desk) {
+                margin-bottom: vh(8px);
+            }
+        }
+
+        &--iconGrid {
+            width: 40%;
+            margin: 0 auto vw(12px);
+            @include breakpoint($b-tab-desk) {
+                margin: 0 auto vh(8px);
+            }
+        }
+    }
+
+    &__text {
+        &--iconList {
+            width: calc(100% - vw(60px));
+            color: $color-text-icon-list;
+            @include breakpoint($b-tab-desk) {
+                width: calc(100% - du(60px));
+            }
+        }
+        &--horizontalList {
+            margin: 0 vw(16px);
+            text-align: center;
+            color: $color-text-horizontal-list;
+
+            @include breakpoint($b-tab-desk) {
+                margin: 0;
+            }
+        }
+        &--iconGrid {
+            text-align: center;
+            color: $color-text-grid-list;
+        }
+    }
+
+}

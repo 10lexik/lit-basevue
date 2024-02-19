@@ -1,0 +1,526 @@
+$color-cards-text: $c-text;
+$color-title: $color-cards-text;
+$color-subtitle: $color-cards-text;
+$color-text: $color-cards-text;
+$max-width-cards-container: du(1440px);
+// reusable variable for the common box-shadow
+$common-box-shadow: 0 1px 1px -1px rgba(34, 34, 43, 0.12), 0 10px 12px -6px rgba(34, 34, 43, 0.12), 0 4px 16px -4px rgba(34, 34, 43, 0.12);
+
+// reusable mixin for applying the common box-shadow
+@mixin apply-box-shadow {
+    box-shadow: $common-box-shadow;
+}
+
+// reusable mixin for applying common styles to .cards__card
+@mixin common-card-styles {
+    flex: 1;
+    margin: 0 auto;
+    background-color: white;
+
+    &:first-child,
+    &:last-child {
+        @include breakpoint($b-tab-desk) {
+            margin-left: 0;
+        }
+    }
+
+    &.reinsurance {
+        text-align: center;
+
+        .content {
+            &__title {
+                padding-bottom: 0;
+                color: $color-title;
+            }
+
+            &__img {
+                margin: 0 auto;
+            }
+
+            &__btn {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                > span {
+                    text-decoration: underline;
+                    text-underline-position: from-font;
+                }
+
+                &:after {
+                    display: block;
+                    font-family: 'icomoon';
+                    content: '\e984';
+                    margin-left: du(8px);
+                }
+            }
+        }
+    }
+
+    &.popIn {
+        max-width: du(299px);
+        margin: 0 auto;
+        @include apply-box-shadow;
+        border-radius: du(8px);
+
+        @include breakpoint($b-tab-desk) {
+            max-width: unset;
+            margin: 0 du(8px);
+        }
+
+        .row & {
+            margin: 0 auto;
+        }
+
+    }
+
+    &__wrapper {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: du(16px) 0;
+
+        .horizontal & {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: auto;
+
+            > div:not(:first-child) {
+                flex: 1;
+            }
+
+            > div:last-child {
+                flex: 0;
+            }
+
+            > div:nth-of-type(1) {
+                flex: 0 0 100%;
+
+                &.fonts {
+                    padding: 0 du(16px) 0 du(16px);
+
+                    ::v-deep {
+                        .bigBody {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+            > div:nth-of-type(2) {
+                padding-bottom: 0;
+                &.img-mod {
+                    ::v-deep {
+                        > .img-mod__image {
+                            height: auto;
+                        }
+                    }
+                }
+            }
+
+            > div:nth-of-type(3) {
+                padding: du(16px) 0 0;
+                flex: 0 0 50%;
+            }
+
+            > div:nth-of-type(4) {
+                margin: 0;
+                padding-bottom: 0;
+            }
+        }
+
+        .content {
+            &__img {
+                padding: 0 du(16px) du(8px);
+
+                .row & {
+                    @include breakpoint($b-mob) {
+                        padding: 0 du(8px) 0;
+                    }
+                }
+
+                .reinsurance.popIn & {
+                    max-width: rem(240px);
+                }
+
+                .horizontal & {
+                    padding: du(16px);
+                }
+            }
+
+            &__title {
+                width: 100%;
+                margin: 0 auto 0 0;
+                padding: du(8px) du(16px);
+                color: $color-title;
+
+                .row & {
+                    @include breakpoint($b-mob-tab) {
+                        padding: du(16px) du(8px) du(8px);
+                    }
+                }
+
+                .fonts {
+                    ::v-deep {
+                        > .bigBody {
+                            font-weight: bold;
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        padding: du(2px) 0;
+                    }
+                }
+
+                &--subtitle {
+                    color: $color-subtitle;
+                }
+
+                &--btn {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .icon {
+                        width: du(20px);
+                        height: du(20px);
+                        border-radius: 100%;
+                        border: 1px solid $c-vp;
+
+                        color: $c-vp;
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:before {
+                            font-size: du(10px);
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                &--favorites {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+
+                    > span {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        &:first-child {
+                            margin-right: du(2px);
+                        }
+
+                        &:not(:first-child) {
+                            margin: 0 du(2px);
+                        }
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        .fonts {
+                            align-self: flex-end;
+                            line-height: 1;
+                        }
+
+                        > i {
+                            font-size: du(16px);
+                            color: rgba(236, 0, 140, 1);
+                            background: -webkit-linear-gradient(0deg, rgba(231, 165, 65, 1) 0%, rgba(236, 0, 140, 1) 100%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+                    }
+                }
+            }
+
+            &__txt {
+                padding: 0 du(16px);
+                color: $color-text;
+
+                .row & {
+                    @include breakpoint($b-mob) {
+                        padding: 0 du(8px);
+                    }
+                }
+
+                .category & {
+                    padding-bottom: du(16px);
+                }
+            }
+
+            &__btn {
+                padding: du(16px) du(16px) 0;
+                margin: auto 0 0 0;
+
+                .row & {
+                    @include breakpoint($b-mob-tab) {
+                        padding: du(16px) du(8px) 0;
+                    }
+                }
+
+                & .fill-content, ::v-deep & .fill-content * {
+                    height: 100%;
+                }
+
+                .click--block {
+                    display: inline-flex;
+
+                    .info & {
+                        display: block;
+
+                        ::v-deep {
+                            .button {
+                                a {
+                                    padding: du(8px) 0;
+                                }
+                            }
+                        }
+                    }
+
+                    ::v-deep {
+                        .button {
+                            a {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                align-items: center;
+                                padding: du(8px) du(32px);
+                                background-color: $c-vp;
+
+                                /* &:after {
+                                    display: block;
+                                    font-family: 'icomoon';
+                                    content: "\e970";
+                                    margin-left: du(4px);
+                                    font-size: du(20px);
+                                    font-weight: normal;
+                                } */
+                            }
+                        }
+                    }
+                }
+
+                &--stickers {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-bottom: du(16px);
+
+                    &.rounded {
+                        .sticker {
+                            border-radius: du(35px);
+                        }
+                        div:has(.icon) {
+                            border-radius: 100%;
+                        }
+                    }
+
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        height: du(35px);
+
+                        &:not(div:has(.icon)) {
+                            width: 100%;
+                            border: 1px solid black;
+                        }
+
+                        &:has(.icon) {
+                            width: du(35px);
+                            flex: 1 0 du(35px);
+                            padding: du(1px);
+                            background: rgb(231, 165, 65);
+                            background: linear-gradient(82deg, rgba(231, 165, 65, 1) 0%, rgba(236, 0, 140, 1) 100%);
+
+                            .rounded & {
+                                border-radius: 100%;
+                            }
+
+                            > div {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                padding: du(1px);
+
+                                background-color: white;
+
+                                i {
+                                    width: 100%;
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    color: rgba(236, 0, 140, 1);
+                                    background: -webkit-linear-gradient(0deg, rgba(231, 165, 65, 1) 0%, rgba(236, 0, 140, 1) 100%);
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                }
+
+                            }
+                        }
+
+                        &:nth-of-type(1),
+                        &:nth-of-type(2) {
+                            > div {
+                                display: block;
+                                background-color: white;
+                            }
+                        }
+
+                        &:nth-of-type(2) {
+                            margin: 0 du(10px);
+                        }
+                    }
+                }
+
+                .horizontal & {
+                    margin: 0 0 auto;
+                    padding: du(16px);
+
+                    .icon {
+                        width: du(20px);
+                        height: du(20px);
+                        border-radius: 100%;
+                        border: 1px solid $c-vp;
+
+                        color: $c-vp;
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:before {
+                            font-size: du(10px);
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .category & {
+                    position: absolute;
+                    z-index: 1;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+
+                    .click--block {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: du(8px) 0;
+
+    @include breakpoint($b-tab-desk) {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        max-width: $max-width-cards-container;
+        // align-items: flex-start; // Height auto
+        // align-content: flex-start; // Height auto
+    }
+
+    &.row {
+        @include breakpoint($b-mob-tab) {
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .popIn {
+                flex: 0 0 48%;
+                margin: du(4px) auto;
+                padding: 0;
+            }
+
+            > div {
+                max-width: unset;
+                flex: 0 0 50%;
+            }
+        }
+    }
+
+    &__card {
+        @include common-card-styles;
+
+        &.popIn {
+            padding: 0;
+            margin-bottom: vw(12px);
+
+            @include breakpoint($b-desk) {
+                margin-bottom: 0;
+            }
+
+            .row & {
+                > div {
+                    margin: 0;
+                    @include breakpoint($b-tab-desk) {
+                        margin: du(8px);
+                    }
+                }
+            }
+
+            > div {
+                margin: du(8px) auto;
+                @include breakpoint($b-tab-desk) {
+                    margin: du(8px);
+                }
+            }
+        }
+
+        &.horizontal {
+            > div {
+                margin: 0;
+            }
+
+            &.popIn {
+                @include breakpoint($b-mob) {
+                    max-width: du(344px);
+                }
+
+                > div {
+                    margin: du(8px);
+                    max-width: unset;
+                }
+
+                .row & {
+                    > div {
+                        margin: 0;
+                        @include breakpoint($b-tab-desk) {
+                            margin: du(8px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

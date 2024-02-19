@@ -1,0 +1,29 @@
+// Thin (100)
+
+// Extra Light (200)
+
+// Light (300)
+@include font-face('hk-grotesk', 'HKGrotesk-Light', 'hk-grotesk', 'serif', 300, normal);
+@include font-face('hk-grotesk', 'HKGrotesk-LightItalic', 'hk-grotesk', 'serif', 300, italic);
+
+// Regular (400)
+@include font-face('hk-grotesk', 'HKGrotesk-Regular', 'hk-grotesk', 'serif', normal, normal);
+@include font-face('hk-grotesk', 'HKGrotesk-Italic', 'hk-grotesk', 'serif', normal, italic);
+
+// Medium (500)
+@include font-face('hk-grotesk', 'HKGrotesk-Medium', 'hk-grotesk', 'serif', 500, normal);
+@include font-face('hk-grotesk', 'HKGrotesk-MediumItalic', 'hk-grotesk', 'serif', 500, italic);
+
+// Semi Bold (600)
+@include font-face('hk-grotesk', 'HKGrotesk-SemiBold', 'hk-grotesk', 'serif', 600, normal);
+@include font-face('hk-grotesk', 'HKGrotesk-SemiBoldItalic', 'hk-grotesk', 'serif', 600, italic);
+
+// Bold (700)
+@include font-face('hk-grotesk', 'HKGrotesk-Bold', 'hk-grotesk', 'serif', bold, normal);
+@include font-face('hk-grotesk', 'HKGrotesk-BoldItalic', 'hk-grotesk', 'serif', bold, italic);
+
+// Extra Bold (800)
+
+// Black (900)
+
+$t-hk-grotesk: 'hk-grotesk';

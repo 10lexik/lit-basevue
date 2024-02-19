@@ -1,0 +1,78 @@
+$c-title: $c-text;
+$c-subtitle: $c-text;
+
+.gallery__title + .gallery__wrapper {
+    padding: 10% 0;
+    @include breakpoint($b-tab-desk) {
+        padding: 5% 0;
+    }
+}
+
+.gallery {
+    overflow: hidden;
+
+    &__title {
+        margin: 5% auto;
+        text-align: center;
+        color: $c-title;
+
+        @include breakpoint($b-tab-desk) {
+            margin: 2.5% auto;
+        }
+
+        &--subtitle {
+            color: $c-subtitle;
+        }
+    }
+
+    &__wrapper {
+        padding: 25% 0;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: rem(1200px);
+        margin: 0 du((5px / 2));
+
+        @include breakpoint($b-tab-desk) {
+            padding: (25% / 2) 0 (25% / 2);
+            margin: auto;
+        }
+
+        > div {
+            flex: 1 0 (100% / 2);
+            height: 100%;
+            overflow: hidden;
+
+            @include breakpoint($b-tab-desk) {
+                flex: 1;
+            }
+
+            :deep {
+                .video {
+                    width: auto;
+                }
+            }
+
+            > div {
+                margin: du((5px / 2));
+                max-height: du(290px);
+                overflow: hidden;
+
+                @include breakpoint($b-tab-desk) {
+                    margin: 0 du((5px));
+                    max-height: du(420px);
+                }
+
+                ::v-deep {
+                    video,
+                    img {
+                        transform-origin: center center;
+
+                        .shifted & {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

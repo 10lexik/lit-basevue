@@ -1,0 +1,34 @@
+// Popin colors
+$storyviewer-popin-c-background: #ffffff;
+$storyviewer-popin-c-text: #333333;
+
+// Popin size
+$storyviewer-popin-width: 80%;
+$storyviewer-popin-padding: 10px;
+$storyviewer-popin-width-desk: $storyviewer-popin-width;
+$storyviewer-popin-padding-desk: $storyviewer-popin-padding;
+
+.StoryViewerPopin {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: $storyviewer-popin-width;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 0.25s ease;
+    z-index: 5;
+
+    &__inner {
+        width: $storyviewer-popin-width;
+        margin: 0 auto;
+        background-color: $storyviewer-popin-c-background;
+        padding: $storyviewer-popin-padding;
+        color: $storyviewer-popin-c-text;
+        max-width: 100%;
+    }
+
+    &.active {
+        transform: translateY(0%);
+        transition: transform 0.25s 0.25s ease;
+    }
+}

@@ -1,0 +1,37 @@
+.ratings {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    > span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &:first-child {
+            margin-right: du(2px);
+        }
+
+        &:not(:first-child) {
+            margin: 0 du(2px);
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .fonts {
+            align-self: flex-end;
+            line-height: 1;
+        }
+
+        > i {
+            font-size: du(16px);
+            color: rgba(236, 0, 140, 1);
+            background: -webkit-linear-gradient(0deg, rgba(231, 165, 65, 1) 0%, rgba(236, 0, 140, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

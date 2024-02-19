@@ -1,0 +1,6 @@
+@mixin darkenHover($color, $percent: 5%) {
+    &:hover {
+        background: darken($color, $percent);
+        transition: all ease .4s;
+    }
+}

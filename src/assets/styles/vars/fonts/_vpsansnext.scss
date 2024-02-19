@@ -1,0 +1,29 @@
+// Thin (100)
+
+// Extra Light (200)
+
+// Light (300)
+@include font-face('vp-sans-next', 'VPSansNext-Light', 'vp-sans-next', 'serif', 300, normal);
+@include font-face('vp-sans-next', 'VPSansNext-LightItalic', 'vp-sans-next', 'serif', 300, italic);
+
+// Regular (400)
+@include font-face('vp-sans-next', 'VPSansNext-Regular', 'vp-sans-next', 'serif', normal, normal);
+@include font-face('vp-sans-next', 'VPSansNext-Italic', 'vp-sans-next', 'serif', normal, italic);
+
+// Medium (500)
+@include font-face('vp-sans-next', 'VPSansNext-Medium', 'vp-sans-next', 'serif', 500, normal);
+@include font-face('vp-sans-next', 'VPSansNext-MediumItalic', 'vp-sans-next', 'serif', 500, italic);
+
+// Semi Bold (600)
+
+// Bold (700)
+@include font-face('vp-sans-next', 'VPSansNext-Bold', 'vp-sans-next', 'serif', bold, normal);
+@include font-face('vp-sans-next', 'VPSansNext-BoldItalic', 'vp-sans-next', 'serif', bold, italic);
+
+// Extra Bold (800)
+
+// Black (900)
+@include font-face('vp-sans-next', 'VPSansNext-Black', 'vp-sans-next', 'serif', 900, normal);
+@include font-face('vp-sans-next', 'VPSansNext-Blackitalic', 'vp-sans-next', 'serif', 900, italic);
+
+$t-vp-sans-next: 'vp-sans-next';

@@ -1,0 +1,213 @@
+// Settings
+$loader-c-carterose-carte: #ffffff;
+$loader-c-carterose-rose: $c-vp;
+$loader-c-carterose-line: $loader-c-carterose-carte;
+$loader-c-spinner: #ffffff;
+$loader-brand-size-mobile: 280px;
+$loader-brand-size-desktop: 400px;
+$loader-spinner-size: 50px;
+$loader-spinner-vp-img-size: 20px;
+$loader-bullets-size: 40px;
+$loader-c-bullets: #ffffff;
+$loader-progressBarHeight-mob: 2px;
+$loader-progressBarHeight-desk: 5px;
+$loader-c-progressBar-background: rgba(0, 0, 0, 0.1);
+$loader-c-progressBar-progress: $c-vp;
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: z('loader');
+    background-color: $c-theme;
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+
+    &__brands-wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__carterose {
+        width: 100%;
+        margin-bottom: vhMob(16px);
+
+        @include breakpoint($b-desk) {
+            margin-bottom: vh(16px);
+        }
+
+        &.classic {
+            position: absolute;
+            top: vw(40px);
+            left: 0;
+
+            @include breakpoint($b-desk) {
+                top: du(80px);
+            }
+        }
+
+        ::v-deep &__img {
+            width: vw(180px);
+
+            @include breakpoint($b-desk) {
+                width: du(240px);
+            }
+
+            .carte {
+                fill: $loader-c-carterose-carte;
+            }
+
+            .rose {
+                fill: $loader-c-carterose-rose;
+            }
+
+            .line {
+                fill: $loader-c-carterose-line;
+            }
+        }
+    }
+
+    &__brand {
+        width: 100%;
+
+        &__img {
+            max-width: vw($loader-brand-size-mobile);
+            max-height: vw($loader-brand-size-mobile);
+
+            @include breakpoint($b-desk) {
+                max-width: du($loader-brand-size-desktop);
+                max-height: du($loader-brand-size-desktop);
+            }
+        }
+    }
+
+    &__spinner {
+        position: absolute;
+        bottom: vw(20px);
+        left: 0;
+        width: 100%;
+
+        @include breakpoint($b-desk) {
+            bottom: du(40px);
+        }
+
+        ::v-deep &__img {
+            animation: spin 2s linear infinite;
+
+            @include responsive((
+                width: $loader-spinner-size,
+                height: $loader-spinner-size
+            ));
+
+            .path {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+                stroke: $loader-c-spinner;
+                stroke-linecap: round;
+                animation: dash 1.5s ease-in-out infinite;
+            }
+
+            &--vp-color .path {
+                fill: white;
+                stroke: $c-vp;
+            }
+        }
+
+        ::v-deep &__vp-img {
+            position: absolute;
+            left: 50%;
+            z-index: 1;
+            transform: translateX(-50%);
+
+            @include responsive((
+                top: calc(($loader-spinner-size - $loader-spinner-vp-img-size) / 2),
+                width: $loader-spinner-vp-img-size,
+                height: $loader-spinner-vp-img-size
+            ));
+        }
+    }
+
+    &__bullets {
+        position: absolute;
+        bottom: vw(20px);
+        left: 0;
+        width: 100%;
+
+        @include breakpoint($b-desk) {
+            bottom: du(40px);
+        }
+
+        &__element {
+            font-family: $t-vp-sans-next;
+            display: inline-block;
+            color: $loader-c-bullets;
+
+            animation: getUp 1.4s infinite linear;
+
+            @include responsive((
+                font-size: $loader-bullets-size
+            ));
+
+            @for $i from 0 through 2 {
+                &--#{$i} {
+                    animation-delay: $i * .2s;
+                }
+            }
+        }
+    }
+
+    &__bar {
+        background-color: $loader-c-progressBar-background;
+        position: absolute;
+        bottom: vw(52px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: vw(160px);
+        height: $loader-progressBarHeight-mob;
+        max-width: 700px;
+        z-index: 3;
+
+        @include breakpoint($b-desk) {
+            bottom: 52px;
+            height: $loader-progressBarHeight-desk;
+        }
+
+        &__progress {
+            width: 0;
+            height: $loader-progressBarHeight-mob;
+            background-color: $loader-c-progressBar-progress;
+            transition: all 0.2s ease;
+
+            @include breakpoint($b-desk) {
+                height: $loader-progressBarHeight-desk;
+            }
+        }
+    }
+
+    // To do blur effect
+    &__blurred-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+
+        background-image: url('https://i.imgur.com/Dvl8ZnB.jpeg');
+        background-size: cover;
+        background-position: center;
+        filter: blur(10px);
+
+        @include breakpoint($b-desk) {
+            background-image: url('https://img5.goodfon.com/wallpaper/nbig/a/33/malaia-panda-krasnaia-panda-morda-portret-vzgliad-svet-listi.jpg');
+        }
+    }
+}

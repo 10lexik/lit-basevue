@@ -1,0 +1,91 @@
+// text
+$cc-bg-color: #fff;
+$cc-txt-color: $c-text;
+$cc-mention-size: 12px;
+
+// button
+$cc-btn-width: 174px;
+$cc-btn-max-width: 258px;
+$cc-height-mob: 42px;
+$cc-height-desk: 48px;
+$cc-border-radius: 4px;
+
+// icon
+$cc-icon-width: 16px;
+$cc-color-icon: #ec008c;
+$cc-color-souche: #ffffff;
+
+.copycode {
+    position: relative;
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $cc-bg-color;
+        width: 100%;
+        max-width: vw($cc-btn-width);
+        height: vw($cc-height-mob);
+        line-height: vw($cc-height-mob + 2);
+        margin: 0 auto;
+
+        border: 1px black solid;
+        border-radius: vw($cc-border-radius);
+
+        @include breakpoint($b-tab-desk) {
+            max-width: du($cc-btn-max-width);
+            height: du($cc-height-desk);
+            line-height: du($cc-height-desk + 3);
+            border-radius: $cc-border-radius;
+        }
+
+        &__txt {
+            font-family: $t-hk-grotesk;
+            letter-spacing: vw(4px);
+            margin-right: vw(8px);
+            font-weight: bold;
+            text-align: center;
+            color: $cc-txt-color;
+
+            @include breakpoint($b-tab-desk) {
+                letter-spacing: du(4px);
+                margin-right: du(8px);
+            }
+        }
+
+        &__copy {
+            transform: translateY(-1px);
+            width: vw($cc-icon-width);
+
+            @include breakpoint($b-desk) {
+                width: du($cc-icon-width);
+            }
+        }
+
+        ::v-deep  &__icon {
+            .icon-rec {
+                stroke: $cc-color-icon;
+            }
+            .icon-rec-v {
+                fill: $cc-color-icon;
+            }
+            .icon-souche {
+                stroke: $cc-color-souche;
+            }
+        }
+    }
+
+    &__mention {
+        font-size: vw($cc-mention-size);
+        line-height: vw($cc-mention-size);
+        text-align: center;
+        color: $cc-txt-color;
+        margin-top: 8px;
+
+        @include breakpoint($b-desk) {
+            font-size: du($cc-mention-size);
+            line-height: du($cc-mention-size);
+            margin-top: 8px;
+        }
+    }
+}

@@ -1,0 +1,148 @@
+
+$trip-spacing: $g-little-margin;
+$trip-c-text: $c-text;
+$trip-height: 300px;
+$c-filter-background-color: #EEE;
+$c-filter-border-color: #CCC;
+$padding-filter: 10px;
+
+.trip-mod {
+    margin-bottom: calc($trip-spacing * 2);
+    padding-bottom: calc($trip-spacing / 2); // because labels have a margin-bottom: $spacing/2
+
+    &__dest-visual {
+        position: relative;
+
+        &__offer {
+            position: absolute;
+            right: $trip-spacing;
+            bottom: $trip-spacing;
+        }
+    }
+
+    &__infos {
+        padding-top: calc($trip-spacing * 2);
+
+        &__title * {
+            font-size: rem(20px);
+            line-height: rem(26px);
+        }
+
+        &__rating {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        & p {
+            margin: 0 0 $trip-spacing 0;
+            font-size: rem(14px);
+            line-height: rem(20px);
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+
+            &:hover {
+                overflow-x: visible;
+            }
+        }
+    }
+
+    &__specialities {
+        margin: calc($trip-spacing * 2) auto;
+
+        &__label {
+            margin-bottom: calc($trip-spacing / 2);
+            margin-right: $trip-spacing;
+
+            &.secondSpec {
+                background-color: #c29b62;
+            }
+        }
+    }
+
+    &__label {
+        display: inline-block;
+        background-color: $trip-c-text;
+        color: white;
+        font-size: rem(14px);
+        font-weight: bold;
+        text-align: center;
+        padding: 4px 8px;
+    }
+
+    &__button {
+        width: 100%;
+    }
+
+    &__filter {
+        position: relative;
+        width: 90%;
+        margin: 0 auto 15px auto;
+        text-transform: uppercase;
+        background-color: $c-filter-background-color;
+        cursor: pointer;
+
+        @include breakpoint($b-desk) {
+            width: 25%;
+        }
+
+        &__header {
+            display: flex;
+            align-items: center;
+
+            &__image, &__title {
+                padding: $padding-filter 0 $padding-filter $padding-filter;
+            }
+
+            &__image {
+                width: 10%;
+            }
+
+            &__title {
+                width: 75%;
+                text-align: center;
+            }
+        }
+
+        &__list {
+            position: absolute;
+            top: 100%;
+            z-index: 10;
+            width: 100%;
+            background-color: $c-filter-background-color;
+            overflow: auto;
+            max-height: $trip-height;
+
+            transition: all .4s;
+            height: 0;
+
+            & span {
+                display: block;
+                text-align: center;
+                border-bottom: 2px $c-filter-border-color solid;
+                padding: $padding-filter 0;
+
+                &:hover {
+                    background-color: $c-filter-border-color;
+                }
+            }
+
+            &.expand-list {
+                height: $trip-height;
+            }
+        }
+
+        &__action {
+            width: 15%;
+            height: 100%;
+            border-left: 2px #FFF solid;
+            font-weight: bold;
+            color: #F00;
+            padding: $padding-filter + 2px 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

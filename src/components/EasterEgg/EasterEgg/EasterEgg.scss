@@ -1,0 +1,12 @@
+$easter-egg-size-mob: vw(50px);
+$easter-egg-size-desk: du(50px);
+
+.easteregg {
+    cursor: pointer;
+    width: 100%;
+    max-width: $easter-egg-size-mob;
+
+    @include breakpoint($b-desk) {
+        max-width: $easter-egg-size-desk;
+    }
+}

@@ -1,0 +1,30 @@
+$c-easter-egg-reveal-background-color: #333333;
+
+.easteregg-reveal {
+    position: relative;
+
+    &__cover {
+        background-color: #333333;
+        color: #ffffff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &.revealed {
+            display: none;
+        }
+    }
+
+    &__under {
+        position: relative;
+        z-index: 1;
+    }
+}

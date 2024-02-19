@@ -1,0 +1,20 @@
+$easter-egg-size-mob: vw(50px);
+$easter-egg-size-desk: du(50px);
+
+.easteregg-summary {
+
+    &__placeholders {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        &__item {
+            flex: 0 1 $easter-egg-size-mob;
+        }
+
+        @include breakpoint($b-desk) {
+            flex-basis: $easter-egg-size-desk;
+        }
+    }
+}

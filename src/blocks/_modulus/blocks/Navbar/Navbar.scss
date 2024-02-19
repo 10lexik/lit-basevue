@@ -1,0 +1,89 @@
+$bgBtn: #FFA8DC;
+$bgBtnActive: linear-gradient(74deg, #E7A541 0%, rgba(231, 165, 65, 0.00) 100%), #EC008C;
+$colorText: $c-theme;
+
+.navbar {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+
+    @include breakpoint($b-desk) {
+        margin: 0 auto;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: vw(8px);
+
+        @include breakpoint($b-desk) {
+            gap: du(8px);
+        }
+
+    }
+
+    &__button {
+
+        &__inner {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            width: fit-content;
+            align-items: center;
+            justify-content: center;
+            padding: du(8px) du(16px);
+            border-radius: du(6px);
+            transition: all 0.25s ease-in-out;
+            gap: du(8px);
+
+            background: $bgBtn;
+
+            @include breakpoint($b-desk) {
+                padding: du(8px) du(16px);
+                border-radius: du(6px);
+                gap: du(8px);
+            }
+
+            &--icon {
+                position: relative;
+                z-index: 1;
+                width: du(14px);
+                height: du(14px);
+
+                @include breakpoint($b-desk) {
+                    width: du(24px);
+                    height: du(24px);
+                }
+            }
+
+            &--text {
+                position: relative;
+                z-index: 1;
+                color: $colorText;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                transition: opacity 0.25s ease-in-out;
+                background: $bgBtnActive;
+
+                .active &,
+                :hover > & {
+                    opacity: 1;
+                }
+
+            }
+
+        }
+
+    }
+}

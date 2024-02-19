@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="25px" viewBox="0 0 29 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>FILTER</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Plans-de-travail" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LCAF11_MINISITE-DESKTOP_01_COMPLET" transform="translate(-590.000000, -898.000000)">
+            <g id="FILTRE-02" transform="translate(574.000000, 885.000000)">
+                <g id="FILTER" transform="translate(16.976744, 13.600000)">
+                    <path d="M0.848837209,3.4 L26.3139535,3.4" id="Line-4" stroke="#F40102" stroke-width="1.70000005" stroke-linecap="square"></path>
+                    <ellipse id="Oval" fill="#FF0000" cx="20.372093" cy="3.4" rx="3.39534884" ry="3.4"></ellipse>
+                    <ellipse id="Oval" fill="#FF0000" cx="16.9767442" cy="20.4" rx="3.39534884" ry="3.4"></ellipse>
+                    <ellipse id="Oval" fill="#FF0000" cx="6.79069767" cy="11.9" rx="3.39534884" ry="3.4"></ellipse>
+                    <path d="M0.848837209,11.9 L26.3139535,11.9" id="Line-4" stroke="#F40102" stroke-width="1.70000005" stroke-linecap="square"></path>
+                    <path d="M0.848837209,20.4 L26.3139535,20.4" id="Line-4" stroke="#F40102" stroke-width="1.70000005" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
